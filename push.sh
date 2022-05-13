@@ -8,7 +8,7 @@
 # set -e
 offsite_user='9185'
 offsite_host='usw-s009.rsync.net'
-destinations="$offsite_host tma-1.local onyx.local z.local"
+destinations="tma-1.local onyx.local z.local $offsite_host"
 indent="  "
 okay="\U1f197"
 not_okay="\U1f534"
@@ -16,9 +16,13 @@ arrow="\u2B95"
 for path in "$@"; do # For each command line argument.
     # du -h --summarize "$path"
     directory_path="$(dirname $path)"
-    echo "$path"
     for destination in $destinations  ; do
         target="$destination"
+        if [[ $target == $offsite_host ]]; then
+            target_icon="\U1F310" # globe
+        else
+            target_icon="\U1f3e1" # house with garden
+        fi
 
 
         # If our own hostname, ignore it.
@@ -34,7 +38,7 @@ for path in "$@"; do # For each command line argument.
                 destination="$destination:${PWD#/home/eh}"
             fi
             start=$SECONDS
-            echo -e "$indent$arrow  $target"
+            echo -e "$indent$arrow $target_icon $target"
             if timeout 120 rsync "$path" "$destination"  -haAX --no-i-r --noatime --update --archive \
                      --recursive  --human-readable \
                      --exclude=cache --exclude=cache2 --exclude='.cache' --exclude=Trash --exclude=saved-telemetry-pings \
@@ -45,10 +49,10 @@ for path in "$@"; do # For each command line argument.
             else
                 status="$not_okay"
             fi
-            # echo -e -n "\033[2F\033[2K" # up 2, clear entire line
-            echo  -en "$indent$elapsed_string  $target $status"
+            echo -e -n "\033[F\033[2K" # up 2, clear entire line
+            echo  -en "$indent$elapsed_string $target_icon $target $status"
             echo ""
-            echo -e -n "\033[K"
+            #echo -e -n "\033[K"
 
         else
             # echo "$destination not reachable."
