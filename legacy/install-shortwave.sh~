@@ -1,0 +1,8 @@
+#!/bin/bash
+
+sudo apt install flatpak
+
+flatpak install flathub de.haeckerfelix.Shortwave
+
+flatpak run de.haeckerfelix.Shortwave
+

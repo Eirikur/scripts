@@ -1,0 +1,39 @@
+#!/bin/bash
+# Push a file to the remote version of working directory.  Strip home off.
+# 9 May 2018, Patricia's birthday. Quoted $1 to "$1"
+# 6 Aug 2019, added -z to enable compression
+#echo "Sending $1"
+# time rsync --times --update --stats --archive --partial --partial-dir=~/.rsync-partial
+
+date_stamp=$(date +"%A-%b-%d-%Y+%R:%S.%N")
+
+file="$1"
+backup_file="$file.$date_stamp"
+
+if ! rsync -a "$file" eh@argon.local:/media/eh/SDcard/emacs-backups/backup_file
+then
+    msgcard="Argon FAILED"
+else
+    msgcard="Argon okay"
+fi
+
+if ! rsync -a "$file" /media/eh/Internal\ Tank/emacs-backups/$backup_file
+then
+    itmsg="Internal Tank FAILED!"
+else
+    itmsg="Internal Tank okay"
+fi
+
+set -x
+echo $file
+echo $backup_file
+if rsync --times --update --archive --partial --partial-dir=~/.rsync-partial \
+       --human-readable "$file" \ 
+       9185@usw-s009.rsync.net:/data1/home/9185/emacs-backups/$backup_file
+then
+    rsyncmsg="rsync.net okay"
+else
+    rsyncmsg="rsync.net FAILED!"
+fi
+# Tell Emacs what happened.
+echo "$msgcard, $itmsg, $rsyncmsg"

@@ -1,0 +1,8 @@
+#!/bin/bash
+
+/usr/bin/time -f%E rsync -haAXi -cno --inplace \
+              $1 $2 $3 $4
+
+
+
+

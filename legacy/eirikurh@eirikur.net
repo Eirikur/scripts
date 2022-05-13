@@ -1,0 +1,28 @@
+#!/bin/bash
+# Eirikur Hallgrimsson 6 Sept. 2010
+# Time-stamp:<>
+# set -x
+# create-frame plus new-frame was two frames! 3 Dec 2011
+
+wmctrl -R 'emacs@'
+
+if (( $? )); then
+    # No emacs window exists, wmctrl couldn't find one.
+    echo "No Emacs window."
+    /usr/bin/emacs $1
+else # There is a window
+    echo "There is an Emacs window, so it has been raised."
+fi
+
+
+
+
+# param="--eval (new-frame)"
+# if test -z "$1"
+# then
+#     echo "No arguments.  Defaulting to $param"
+# else
+#     param="$1"
+# fi
+
+##### /usr/bin/emacs $1

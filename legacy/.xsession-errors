@@ -1,0 +1,218 @@
+dbus-update-activation-environment: setting DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+dbus-update-activation-environment: setting DISPLAY=:0
+dbus-update-activation-environment: setting XAUTHORITY=/home/eh/.Xauthority
+dbus-update-activation-environment: setting GTK_MODULES=gail:atk-bridge
+dbus-update-activation-environment: setting QT_ACCESSIBILITY=1
+dbus-update-activation-environment: setting SHELL=/bin/bash
+dbus-update-activation-environment: setting QT_ACCESSIBILITY=1
+dbus-update-activation-environment: setting XDG_CONFIG_DIRS=/etc/xdg/xdg-cinnamon:/etc/xdg
+dbus-update-activation-environment: setting XDG_SESSION_PATH=/org/freedesktop/DisplayManager/Session0
+dbus-update-activation-environment: setting LANGUAGE=en_US
+dbus-update-activation-environment: setting DESKTOP_SESSION=cinnamon
+dbus-update-activation-environment: setting GTK_MODULES=gail:atk-bridge
+dbus-update-activation-environment: setting PWD=/home/eh
+dbus-update-activation-environment: setting XDG_SESSION_DESKTOP=cinnamon
+dbus-update-activation-environment: setting LOGNAME=eh
+dbus-update-activation-environment: setting XDG_SESSION_TYPE=x11
+dbus-update-activation-environment: setting GPG_AGENT_INFO=/run/user/1000/gnupg/S.gpg-agent:0:1
+dbus-update-activation-environment: setting XAUTHORITY=/home/eh/.Xauthority
+dbus-update-activation-environment: setting XDG_GREETER_DATA_DIR=/var/lib/lightdm-data/eh
+dbus-update-activation-environment: setting GDM_LANG=en_US
+dbus-update-activation-environment: setting HOME=/home/eh
+dbus-update-activation-environment: setting IM_CONFIG_PHASE=1
+dbus-update-activation-environment: setting LANG=en_US.UTF-8
+dbus-update-activation-environment: setting XDG_SEAT_PATH=/org/freedesktop/DisplayManager/Seat0
+dbus-update-activation-environment: setting XDG_SESSION_CLASS=user
+dbus-update-activation-environment: setting USER=eh
+dbus-update-activation-environment: setting DISPLAY=:0
+dbus-update-activation-environment: setting SHLVL=1
+dbus-update-activation-environment: setting XDG_RUNTIME_DIR=/run/user/1000
+dbus-update-activation-environment: setting GTK3_MODULES=xapp-gtk3-module
+dbus-update-activation-environment: setting XDG_DATA_DIRS=/usr/share/gnome:/usr/share/cinnamon:/home/eh/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share:/var/lib/snapd/desktop
+dbus-update-activation-environment: setting PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+dbus-update-activation-environment: setting GDMSESSION=cinnamon
+dbus-update-activation-environment: setting DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+dbus-update-activation-environment: setting _=/usr/bin/dbus-update-activation-environment
+cinnamon-session[2821]: WARNING: t+0.04167s: Could not read /etc/xdg/autostart/ukui-power-manager-tray.desktop: Key file does not have key “Name” in group “Desktop Entry”
+gnome-keyring-daemon: insufficient process capabilities, insecure memory might get used
+** Message: 11:27:15.350: couldn't access control socket: /run/user/1000/keyring/control: No such file or directory
+gnome-keyring-daemon: insufficient process capabilities, insecure memory might get used
+** Message: 11:27:15.351: couldn't access control socket: /run/user/1000/keyring/control: No such file or directory
+gnome-keyring-daemon: insufficient process capabilities, insecure memory might get used
+[cinnamon-settings-daemon-smartcard] Failed to start: no suitable smartcard driver could be found
+[cinnamon-settings-daemon-smartcard] Failed to start: no suitable smartcard driver could be found
+** Message: 11:27:16.353: Existing monitor config (/home/eh/.config/cinnamon-monitors.xml) not found at startup. Looking for legacy configuration (monitors.xml)
+Cjs-Message: 11:27:16.884: Profiler is disabled. Not setting up signals.
+Clutter-Message: 11:27:16.950: Sync method: PRESENTATION TIME
+xmodmap:  unable to open file '/home/eh/.Xmodmap' for reading
+xmodmap:  1 error encountered, aborting.
+sh: 1: /usr/bin/nvidia-settings: not found
+available 0Cjs-Message: 11:27:17.165: JS LOG: About to start Cinnamon
+
+** (nemo-desktop:3240): WARNING **: 11:27:17.173: Current gtk theme is not known to have nemo support (pho-earth-adaptive) - checking...
+qt5ct: using qt5ct plugin
+
+(nm-applet:3247): libnotify-WARNING **: 11:27:17.198: Failed to connect to proxy
+
+(nm-applet:3247): nm-applet-WARNING **: 11:27:17.200: Failed to show notification: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.Notifications was not provided by any .service files
+Cjs-Message: 11:27:17.369: JS LOG: [LookingGlass/info] Cinnamon.AppSystem.get_default() started in 199 ms
+Cjs-Message: 11:27:17.381: JS LOG: [LookingGlass/info] loading user theme: /usr/share/themes/Mint-Y-Dark/cinnamon/cinnamon.css
+Cjs-Message: 11:27:17.401: JS LOG: [LookingGlass/info] added icon directory: /usr/share/themes/Mint-Y-Dark/cinnamon
+Guake not running, starting it
+cinnamon-session[2821]: WARNING: t+2.19441s: Detected that screensaver has appeared on the bus
+Guake Terminal 3.6.3
+VTE 0.60.3
+Gtk 3.24.20
+created fresh notebook for workspace 0
+Spawning new terminal at /home/eh
+Cjs-Message: 11:27:17.607: JS LOG: [LookingGlass/info] loaded at Sun May 01 2022 11:27:17 GMT-0400 (Eastern Daylight Time)
+Cjs-Message: 11:27:17.607: JS LOG: Cinnamon started at Sun May 01 2022 11:27:17 GMT-0400 (Eastern Daylight Time)
+current workspace is 0
+can't bind show-focus key
+Cjs-Message: 11:27:17.625: JS LOG: [LookingGlass/info] ExtensionSystem started in 1 ms
+Cjs-Message: 11:27:17.625: JS LOG: [LookingGlass/info] NaNms
+Cjs-Message: 11:27:17.625: JS LOG: [LookingGlass/info] SearchProviderManager started in 1 ms
+openGL version 4.3 detected (GL3 Cogl Driver)
+MetaSyncRing disabled: couldn't find required GL extensions, or the minimum safe openGL version was not met
+Cannot found tabs session.json file
+Cjs-Message: 11:27:17.754: JS LOG: [LookingGlass/info] Role locked: tray
+** Message: 11:27:17.757: nemo-desktop: session is cinnamon, establishing proxy
+Cjs-Message: 11:27:17.758: JS LOG: [LookingGlass/info] Loaded applet systray@cinnamon.org in 45 ms
+Cjs-Message: 11:27:17.792: JS LOG: [LookingGlass/info] Loaded applet show-desktop@cinnamon.org in 34 ms
+Cjs-Message: 11:27:17.803: JS LOG: [LookingGlass/info] Loaded applet removable-drives@cinnamon.org in 10 ms
+St-Message: 11:27:17.814: cogl npot texture sizes SUPPORTED
+Cjs-Message: 11:27:17.824: JS LOG: [LookingGlass/info] Role locked: notifications
+Cjs-Message: 11:27:17.835: JS LOG: [LookingGlass/info] Loaded applet notifications@cinnamon.org in 32 ms
+Cjs-Message: 11:27:17.853: JS LOG: [LookingGlass/info] Loaded applet keyboard@cinnamon.org in 17 ms
+Cjs-Message: 11:27:17.907: JS LOG: [LookingGlass/info] Loaded applet printers@cinnamon.org in 54 ms
+Cjs-Message: 11:27:17.977: JS LOG: [LookingGlass/info] Loaded applet calendar@cinnamon.org in 70 ms
+Cjs-Message: 11:27:17.983: JS LOG: [LookingGlass/info] Loaded applet xapp-status@cinnamon.org in 6 ms
+Guake initialized
+Cjs-Message: 11:27:18.037: JS LOG: [LookingGlass/info] Loaded applet favorites@cinnamon.org in 54 ms
+Cjs-Message: 11:27:18.086: JS LOG: [LookingGlass/info] Role locked: panellauncher
+Cjs-Message: 11:27:18.090: JS LOG: [LookingGlass/info] Loaded applet grouped-window-list@cinnamon.org in 53 ms
+Cjs-Message: 11:27:18.110: JS LOG: [LookingGlass/info] Loaded applet power@cinnamon.org in 19 ms
+Cjs-Message: 11:27:18.115: JS LOG: [LookingGlass/info] Adding XAppStatusIcon: nm-applet (:1.83/org/x/StatusIcon/Icon)
+Cjs-Message: 11:27:18.153: JS LOG: [LookingGlass/info] Loaded applet sound@cinnamon.org in 43 ms
+
+** (csd-power:2965): CRITICAL **: 11:27:18.192: abs_to_percentage: assertion 'max > min' failed
+Cjs-Message: 11:27:18.210: JS LOG: [LookingGlass/info] Hiding XAppStatusIcon (we have an applet): nm-applet (:1.83/org/x/StatusIcon/Icon)
+Cjs-Message: 11:27:18.217: JS LOG: [LookingGlass/info] Loaded applet network@cinnamon.org in 64 ms
+Cjs-Message: 11:27:18.441: JS LOG: [LookingGlass/info] Loaded applet menu@cinnamon.org in 224 ms
+Cjs-Message: 11:27:18.441: JS LOG: [LookingGlass/info] AppletManager started in 833 ms
+Cjs-Message: 11:27:18.445: JS LOG: [LookingGlass/info] Cinnamon took 1280 ms to start
+Cjs-Message: 11:27:18.477: JS LOG: Unknown network device type, is 14
+Cjs-Message: 11:27:18.488: JS LOG: [LookingGlass/info] Adding XAppStatusIcon: autokey-gtk (:1.76/org/x/StatusIcon/Icon)
+Cjs-Message: 11:27:18.990: JS LOG: [LookingGlass/info] Adding systray: guake (24x24px)
+Cjs-Message: 11:27:18.991: JS LOG: [LookingGlass/info] Resized guake with normalized size (24x24px)
+
+(guake:3208): Gdk-CRITICAL **: 11:27:19.011: gdk_window_thaw_toplevel_updates: assertion 'window->update_and_descendants_freeze_count > 0' failed
+replace called with invalid arguments, docId: 93449696562907139 url: "/home/eh/"
+getaddrinfo: Name or service not known
+qt5ct: using qt5ct plugin
+Cjs-Message: 11:27:38.349: JS LOG: [LookingGlass/info] Adding XAppStatusIcon: mintUpdate.py (:1.136/org/x/StatusIcon/Icon)
+--------------creatDBusService
+kwin: unable to claim manager selection, another wm running? (try using --replace)
+cinnamon-session[2821]: WARNING: t+32.21004s: Detected that screensaver has left the bus
+Cjs-Message: 11:27:57.886: JS LOG: [LookingGlass/info] Adding XAppStatusIcon: mintreport (:1.150/org/x/StatusIcon/Icon)
+getaddrinfo: Name or service not known
+getaddrinfo: Name or service not known
+X protocol error:
+<class 'Xlib.error.BadAccess'>: code = 10, resource_id = 1509, sequence_number = 1492, major_opcode = 33, minor_opcode = 0
+X protocol error:
+<class 'Xlib.error.BadAccess'>: code = 10, resource_id = 1509, sequence_number = 1493, major_opcode = 33, minor_opcode = 0
+X protocol error:
+<class 'Xlib.error.BadAccess'>: code = 10, resource_id = 1509, sequence_number = 1489, major_opcode = 33, minor_opcode = 0
+X protocol error:
+<class 'Xlib.error.BadAccess'>: code = 10, resource_id = 1509, sequence_number = 1490, major_opcode = 33, minor_opcode = 0
+X protocol error:
+<class 'Xlib.error.BadAccess'>: code = 10, resource_id = 67108889, sequence_number = 2425, major_opcode = 33, minor_opcode = 0
+X protocol error:
+<class 'Xlib.error.BadAccess'>: code = 10, resource_id = 67108889, sequence_number = 2426, major_opcode = 33, minor_opcode = 0
+X protocol error:
+<class 'Xlib.error.BadAccess'>: code = 10, resource_id = 67108889, sequence_number = 2429, major_opcode = 33, minor_opcode = 0
+X protocol error:
+<class 'Xlib.error.BadAccess'>: code = 10, resource_id = 67108889, sequence_number = 2430, major_opcode = 33, minor_opcode = 0
+X protocol error:
+<class 'Xlib.error.BadWindow'>: code = 3, resource_id = <class 'Xlib.xobject.resource.Resource'>(0x06600065), sequence_number = 2640, major_opcode = 33, minor_opcode = 0
+X protocol error:
+<class 'Xlib.error.BadWindow'>: code = 3, resource_id = <class 'Xlib.xobject.resource.Resource'>(0x06600065), sequence_number = 2641, major_opcode = 33, minor_opcode = 0
+X protocol error:
+<class 'Xlib.error.BadWindow'>: code = 3, resource_id = <class 'Xlib.xobject.resource.Resource'>(0x06600065), sequence_number = 2642, major_opcode = 33, minor_opcode = 0
+X protocol error:
+<class 'Xlib.error.BadWindow'>: code = 3, resource_id = <class 'Xlib.xobject.resource.Resource'>(0x06600065), sequence_number = 2643, major_opcode = 33, minor_opcode = 0
+X protocol error:
+<class 'Xlib.error.BadWindow'>: code = 3, resource_id = <class 'Xlib.xobject.resource.Resource'>(0x06600065), sequence_number = 2644, major_opcode = 33, minor_opcode = 0
+X protocol error:
+<class 'Xlib.error.BadWindow'>: code = 3, resource_id = <class 'Xlib.xobject.resource.Resource'>(0x06600065), sequence_number = 2645, major_opcode = 33, minor_opcode = 0
+X protocol error:
+<class 'Xlib.error.BadWindow'>: code = 3, resource_id = <class 'Xlib.xobject.resource.Resource'>(0x06600065), sequence_number = 2646, major_opcode = 33, minor_opcode = 0
+X protocol error:
+<class 'Xlib.error.BadWindow'>: code = 3, resource_id = <class 'Xlib.xobject.resource.Resource'>(0x06600065), sequence_number = 2647, major_opcode = 33, minor_opcode = 0
+X protocol error:
+<class 'Xlib.error.BadWindow'>: code = 3, resource_id = <class 'Xlib.xobject.resource.Resource'>(0x06600065), sequence_number = 2648, major_opcode = 33, minor_opcode = 0
+X protocol error:
+<class 'Xlib.error.BadWindow'>: code = 3, resource_id = <class 'Xlib.xobject.resource.Resource'>(0x06600065), sequence_number = 2649, major_opcode = 33, minor_opcode = 0
+X protocol error:
+<class 'Xlib.error.BadWindow'>: code = 3, resource_id = <class 'Xlib.xobject.resource.Resource'>(0x06600065), sequence_number = 2650, major_opcode = 33, minor_opcode = 0
+X protocol error:
+<class 'Xlib.error.BadWindow'>: code = 3, resource_id = <class 'Xlib.xobject.resource.Resource'>(0x06600065), sequence_number = 2651, major_opcode = 33, minor_opcode = 0
+X protocol error:
+<class 'Xlib.error.BadWindow'>: code = 3, resource_id = <class 'Xlib.xobject.resource.Resource'>(0x06600065), sequence_number = 2652, major_opcode = 33, minor_opcode = 0
+X protocol error:
+<class 'Xlib.error.BadWindow'>: code = 3, resource_id = <class 'Xlib.xobject.resource.Resource'>(0x06600065), sequence_number = 2653, major_opcode = 33, minor_opcode = 0
+X protocol error:
+<class 'Xlib.error.BadWindow'>: code = 3, resource_id = <class 'Xlib.xobject.resource.Resource'>(0x06600065), sequence_number = 2654, major_opcode = 33, minor_opcode = 0
+X protocol error:
+<class 'Xlib.error.BadWindow'>: code = 3, resource_id = <class 'Xlib.xobject.resource.Resource'>(0x06600065), sequence_number = 2655, major_opcode = 33, minor_opcode = 0
+X protocol error:
+<class 'Xlib.error.BadWindow'>: code = 3, resource_id = <class 'Xlib.xobject.resource.Resource'>(0x06600078), sequence_number = 2656, major_opcode = 33, minor_opcode = 0
+X protocol error:
+<class 'Xlib.error.BadWindow'>: code = 3, resource_id = <class 'Xlib.xobject.resource.Resource'>(0x06600078), sequence_number = 2657, major_opcode = 33, minor_opcode = 0
+X protocol error:
+<class 'Xlib.error.BadWindow'>: code = 3, resource_id = <class 'Xlib.xobject.resource.Resource'>(0x06600078), sequence_number = 2658, major_opcode = 33, minor_opcode = 0
+X protocol error:
+<class 'Xlib.error.BadWindow'>: code = 3, resource_id = <class 'Xlib.xobject.resource.Resource'>(0x06600078), sequence_number = 2659, major_opcode = 33, minor_opcode = 0
+X protocol error:
+<class 'Xlib.error.BadWindow'>: code = 3, resource_id = <class 'Xlib.xobject.resource.Resource'>(0x06600078), sequence_number = 2660, major_opcode = 33, minor_opcode = 0
+X protocol error:
+<class 'Xlib.error.BadWindow'>: code = 3, resource_id = <class 'Xlib.xobject.resource.Resource'>(0x06600078), sequence_number = 2661, major_opcode = 33, minor_opcode = 0
+X protocol error:
+<class 'Xlib.error.BadWindow'>: code = 3, resource_id = <class 'Xlib.xobject.resource.Resource'>(0x06600078), sequence_number = 2662, major_opcode = 33, minor_opcode = 0
+X protocol error:
+<class 'Xlib.error.BadWindow'>: code = 3, resource_id = <class 'Xlib.xobject.resource.Resource'>(0x06600078), sequence_number = 2663, major_opcode = 33, minor_opcode = 0
+X protocol error:
+<class 'Xlib.error.BadWindow'>: code = 3, resource_id = <class 'Xlib.xobject.resource.Resource'>(0x06600078), sequence_number = 2664, major_opcode = 33, minor_opcode = 0
+X protocol error:
+<class 'Xlib.error.BadWindow'>: code = 3, resource_id = <class 'Xlib.xobject.resource.Resource'>(0x06600078), sequence_number = 2665, major_opcode = 33, minor_opcode = 0
+X protocol error:
+<class 'Xlib.error.BadWindow'>: code = 3, resource_id = <class 'Xlib.xobject.resource.Resource'>(0x06600078), sequence_number = 2666, major_opcode = 33, minor_opcode = 0
+X protocol error:
+<class 'Xlib.error.BadWindow'>: code = 3, resource_id = <class 'Xlib.xobject.resource.Resource'>(0x06600078), sequence_number = 2667, major_opcode = 33, minor_opcode = 0
+X protocol error:
+<class 'Xlib.error.BadWindow'>: code = 3, resource_id = <class 'Xlib.xobject.resource.Resource'>(0x06600078), sequence_number = 2668, major_opcode = 33, minor_opcode = 0
+X protocol error:
+<class 'Xlib.error.BadWindow'>: code = 3, resource_id = <class 'Xlib.xobject.resource.Resource'>(0x06600078), sequence_number = 2669, major_opcode = 33, minor_opcode = 0
+X protocol error:
+<class 'Xlib.error.BadWindow'>: code = 3, resource_id = <class 'Xlib.xobject.resource.Resource'>(0x06600078), sequence_number = 2670, major_opcode = 33, minor_opcode = 0
+X protocol error:
+<class 'Xlib.error.BadWindow'>: code = 3, resource_id = <class 'Xlib.xobject.resource.Resource'>(0x06600078), sequence_number = 2671, major_opcode = 33, minor_opcode = 0
+X protocol error:
+<class 'Xlib.error.BadAccess'>: code = 10, resource_id = 67108889, sequence_number = 1405, major_opcode = 33, minor_opcode = 0
+X protocol error:
+<class 'Xlib.error.BadAccess'>: code = 10, resource_id = 67108889, sequence_number = 1406, major_opcode = 33, minor_opcode = 0
+X protocol error:
+<class 'Xlib.error.BadAccess'>: code = 10, resource_id = 1509, sequence_number = 1489, major_opcode = 33, minor_opcode = 0
+X protocol error:
+<class 'Xlib.error.BadAccess'>: code = 10, resource_id = 1509, sequence_number = 1490, major_opcode = 33, minor_opcode = 0
+X protocol error:
+<class 'Xlib.error.BadAccess'>: code = 10, resource_id = 67108889, sequence_number = 1819, major_opcode = 33, minor_opcode = 0
+X protocol error:
+<class 'Xlib.error.BadAccess'>: code = 10, resource_id = 67108889, sequence_number = 1820, major_opcode = 33, minor_opcode = 0
+X protocol error:
+<class 'Xlib.error.BadAccess'>: code = 10, resource_id = 67108889, sequence_number = 1513, major_opcode = 33, minor_opcode = 0
+getaddrinfo: Name or service not known
+getaddrinfo: Name or service not known
+getaddrinfo: Name or service not known
+getaddrinfo: Name or service not known
+getaddrinfo: Name or service not known

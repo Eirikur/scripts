@@ -1,0 +1,89 @@
+#!/bin/bash
+# Script to install node (Node.js), npm (Node Package Manager) and
+# Coffeescript by Eirikur Hallgrimsson, November 2010
+# Revised 18 May 2011 to accomodate npm >= 1.0
+
+# new 22 July 2011 for Rainer's machine
+# sudo apt-get install build-essential
+# sudo apt-get install git
+# sudo apt-get install libssl-dev
+
+
+# Create a directory tree under our home dir.
+rm -rf ~/local
+mkdir --parents ~/local/bin # Create ~/local/bin, creating local if needbe.
+mkdir --parents ~/local/share/man
+mkdir ~/local/.node_libraries
+rm -rf ~/local/src
+mkdir ~/local/src
+
+# echo "Checking for git..."
+# if ! which git
+#     then
+#         echo "Please install the git version control system and try again."
+#         exit
+#     else
+#         echo "You've got git.  Good!"
+# fi
+
+
+# Get Node from the repository, build it, and install it.
+# cd ~/local/src
+# rm -rf node
+# #git clone https://github.com/ry/node.git # node got absorbed by Joyent, Inc.
+# git clone https://github.com/joyent/node.git
+
+
+cd ~/local/src
+
+
+
+tar -zxvf ~/Downloads/node*.tar.gz
+
+cd node*
+
+./configure --prefix=$HOME/local/ # Installation will be under ~/local
+
+########################################################################git checkout v0.4.12
+make   # Going back to j3 24 April 2012
+make install
+
+# Ok, now the node executable is installed in ~/local/bin
+# We need to put that in our path.
+export PATH=$HOME/local/bin:$PATH # For this session
+export PATH=$HOME/local/share/man:$PATH #
+echo 'export PATH=~/local/bin:${PATH}' >> ~/.bashrc # For subsequent sessions.
+echo 'export PATH=~/local/share/man:${PATH}' >> ~/.bashrc
+
+
+# We need to set up defaults for npm before installing it.
+cat >>~/.npmrc <<NPMRC
+
+root = ~/local/.node_libraries
+binroot = ~/local/bin
+manroot = ~/local/share/man
+NPMRC
+
+# # Get npm (Node package manager), built it and install it.
+# cd ~/local/src
+# rm -rf npm
+# git clone https://github.com/isaacs/npm.git
+# cd npm
+# ./configure --prefix=$HOME/local/ # Installation will be under ~/local
+# make -j4 install
+
+# # Clean up source files. Many small files taking up a lot of space.
+# rm -rf ~/local/src
+
+
+# Now we can use npm to install CoffeeScript.  Yes, npm knows it as 'coffee-script.'
+# That -g in the command is CRITICAL.  Otherwise the install goes into ~/.npm
+# This is an npm issue where using npm to install libraries "local" to a project
+# is deemed the normal cafse in npm > 1.0
+npm install -g coffee-script
+which coffee
+coffee -e '{print, puts, debug, error, inspect, p, log, pump, inherits} = require "util"; puts "Greetings printed by CoffeeScript!"'
+echo "See http://nodul.es/ for an index of other tools and libraries for Node."
+echo "Any of those can be imported and used by CoffeeScript."
+
+

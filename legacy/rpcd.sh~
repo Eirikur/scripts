@@ -1,0 +1,15 @@
+#!/bin/bash
+echo "Deleting excluded files during copy!"
+/usr/bin/time -f%E rsync -a --update --info=progress2 \
+              --delete --delete-excluded \
+              --exclude='*.img' --exclude='Trash' \
+              --exclude='Downloads' \
+              --exclude='Instruments' \
+              --exclude=cache --exclude=cache2 --exclude='.cache' \
+              --exclude='*.iso' --exclude='*.tar' \
+              --exclude='saved-telemetry-pings' \
+              $1 $2 $3 $4
+
+
+
+

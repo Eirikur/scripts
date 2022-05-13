@@ -1,0 +1,2 @@
+#!/bin/bash
+time sudo dd if=$1 of=$2 bs=4M iflag=fullblock oflag=direct,dsync status=progress; sync; echo "Complete and synced."

@@ -1,0 +1,1 @@
+rsync  -v -v --timeout=300 --progress --partial  /home/eh.tar eirikurh@eirikur.net:

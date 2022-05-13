@@ -1,0 +1,13 @@
+#!/bin/bash
+set -e
+
+paths="/ ~/"
+for path in "$paths"
+do
+    echo "Path: $path"
+done
+
+# dd if=/dev/zero bs=16M iflag=fullblock | pv -s 100g -S | dd of="$1" bs=16M
+
+
+# /usr/bin/time -f%E sudo dd if=$1 of=$2 bs=8M iflag=fullblock status=progress; echo "Syncing..."; sync; echo "Complete and synced."

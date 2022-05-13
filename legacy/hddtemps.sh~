@@ -1,0 +1,1 @@
+ls /dev/sd? | grep -v SSD - | cut -d ':' -f 2 | cut -d ' ' -f 2 | xargs sudo hddtemp 2>/dev/null | cut -d ':' -f1,3

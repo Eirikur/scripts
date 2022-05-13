@@ -1,0 +1,26 @@
+#!/bin/bash
+set -e # Exit on error.
+
+echo "Tomboy..."
+tomboy='./.local/share/tomboy ./.gconf/apps/tomboy ./.config/tomboy'
+time rsync --stats -a --partial --partial-dir=~/.rsync-partial --compress --compress-level=9 \
+     --update --links --progress --human-readable $tomboy \
+     9185@usw-s009.rsync.net:eh/
+
+echo "Tarring mail..."
+tar -cvf ~/thunderbird-folder.tar. ~/.thunderbird
+echo "Tarring Firefox..."
+tar -cvf ~/firefox-folder.tar ~/.mozilla
+
+
+~/scripts/backup-mysync.sh
+
+if (($?)); then  # We failed.
+    Q=$?
+    echo "Backup to rsync.net failed: $Q"
+    # notify-send --urgency=critical "Backup to rsync.net failed!"
+    zenity --error --text "Backup to rsync.net failed: $Q"
+    read -p "Dismiss" q
+    exit 1
+
+fi

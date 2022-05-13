@@ -1,0 +1,39 @@
+#!/bin/bash
+
+server="$1"
+server_list='z.local onyx.local tma-1.local'
+servers=($server_list)
+mac_list='1c:c1:de:33:87:5a 70:85:c2:f4:8a:77 f8:0d:ac:38:e7:0e'
+mac_addresses=($mac_list)
+
+for ((index=0; index<${#servers[@]}; ++index)); do
+    candidate="${servers[index]}"
+    if [[ "$candidate" == *"$server"* ]]; then # substring match
+        host_name="$candidate"
+        mac_address="${mac_addresses[index]}"
+        echo "Found $candidate index $index MAC $mac_address";
+        wakeonlan "$mac_address"
+        echo -n "Waiting"
+        seconds=0
+        while ! timeout 1 gethostip &>/dev/null "$host_name"; do
+            let "seconds+=1"
+            echo -n "."
+        done
+        # stdbuf -o0 echo -e "\n" # Not-working fix to get a newline
+        echo ""
+        echo "$host_name became available in $seconds seconds."
+        echo ""
+        ssh -X "$host_name" source .profile &
+
+    fi
+done        
+
+# for candidate in "$servers"; do
+#     if [[ "$server" == *"$candidate"* ]]; then
+#     else
+#         echo "Who?"; exit 1;
+#     fi
+# done
+      
+# #
+# wakeonlan 1c:c1:de:33:87:5a

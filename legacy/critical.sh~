@@ -1,0 +1,11 @@
+#!/bin/bash
+
+list=".bashrc .emacs .emacs.d .local/share/gnote .local/share/tomboy .thunderbird .mozilla"
+
+for item in "$list"
+do
+            rsync -a $item . --archive --one-file-system --times --update --recursive \
+                  --partial --partial-dir=~/.rsync-partial \
+                  --compress --compression-level=9 \
+                  --links --info=progress2 --human-readable
+done

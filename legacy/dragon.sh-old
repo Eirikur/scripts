@@ -1,0 +1,9 @@
+#!/bin/bash
+wmctrl -R 'rdesktop'
+
+if (( $? )); then
+    # No rdesktop window exists, wmctrl couldn't find one.
+    echo "No rdesktop window."
+    rdesktop  -z -f -a 32 -r sound:local -u eh -p 'eh123dragon' 192.168.0.3 -g 1920x1200 -D -x l
+fi
+

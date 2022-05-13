@@ -1,0 +1,1 @@
+/usr/bin/time -f%E rsync -a 9185@usw-s009.rsync.net: /internal/rsync.net/ -v  -e ssh -T -c aes128-ctr -o Compression=no -x --info=progress2 --exclude=.mozilla --exclude=.thunderbird
