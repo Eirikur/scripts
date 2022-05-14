@@ -15,13 +15,13 @@ do
     file="$path"
     file="${file#.}" # Somehow strips a leading period.
     file=$(echo "$file" | sed 's:/*$::') # Strip trailing slash.
-    archive="$file.tgz"
+    archive="$file.tar.zstd"
 
     size=$(du -sh "$path" | cut -f1)
     echo "$path  $size"
-    /usr/bin/time -f%E tar -cf - "$path" | zstd --adapt --rsyncable  | ssh onyx.local "zstd -d -s 1M -m 32M | tar -xvf"
+    usr/bin/time -f%E tar -cf - "$path" | zstd --adapt --rsyncable  | ssh onyx.local "zstd -d -s 1M -m 32M | tar -xvf"
     size=$(du -h "$archive" | cut -f1)
-    echo "Archive done. Size: $size"
+    echo "$archive $size"
 
     for ((index=0; index<${#servers[@]}; ++index)); do
         server="${servers[index]}"
