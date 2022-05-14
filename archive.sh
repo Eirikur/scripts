@@ -21,6 +21,4 @@ for source in "$@"; do
     echo -e "$elapsed_string $filename.tar.zstd $size $okay"
 done
 
-~/scripts/just_push.sh "$local_dir" "onyx.local:/Fast/Archives/"
-ssh onyx.local "rsync -avr --status=progress2 /Fast/Archives /syba"
-~/scripts/just_push.sh "$local_dir" "9185@usw-s009.rsync.net:$remote_dir"
+~/scripts/push-Archives.sh
