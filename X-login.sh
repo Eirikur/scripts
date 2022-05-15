@@ -10,7 +10,7 @@ xmodmap ~/.Xmodmap
 
 xrdb ~/.Xresources
 
-while true; do emacs-snapshot --fg-daemon &>/dev/null; done & # Will daemonize. Let it init itself in background.
+while true; do emacs-snapshot --fg-daemon &>/dev/null; notify-send "Restarting Emacs."; done & # Will daemonize. Let it init itself in background.
 
 #~/scripts/dmesg-display.sh & # Background it. It doesn't like being disowned.
 
