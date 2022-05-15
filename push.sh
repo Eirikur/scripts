@@ -13,6 +13,7 @@ indent="  "
 okay="\U1f197"
 not_okay="\U1f534"
 arrow="\u2B95"
+
 for path in "$@"; do # For each command line argument.
     # du -h --summarize "$path"
     directory_path="$(dirname $path)"
