@@ -3,16 +3,24 @@
 # 2022 April fixed to use command -v
 
 # Do we have the snapshot version installed?
-if command -v emacs-snapshot &> /dev/null
-then
-    echo "Using emacs-snapshot."
-    emacsclient='emacsclient-snapshot'
-    emacs='emacs-snapshot'
-else
-    echo "Using ordinary /usr/bin/emacs"
-    emacsclient='emacsclient'
-    emacs='emacs'
-fi
+# if command -v emacs-snapshot &> /dev/null
+# then
+#     echo "Using emacs-snapshot."
+#     emacsclient='emacsclient-snapshot'
+#     emacs='emacs-snapshot'
+# else
+#     echo "Using ordinary /usr/bin/emacs"
+#     emacsclient='emacsclient'
+#     emacs='emacs'
+# fi
+
+version=28
+
+echo "Using ordinary /usr/bin/emacs$version"
+emacsclient="emacsclient$version"
+emacs="emacs$version"
+
+
 
 title='ξmacs'
 

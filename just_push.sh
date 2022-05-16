@@ -19,7 +19,7 @@ arrow="\u2B95"
 if timeout 2 gethostip $host  >/dev/null; then # server is reachable.
     echo -e "$indent$arrow  $host"
     start=$SECONDS # 3600 seconds == one hour
-    if timeout 3600 rsync "$source" "$target" -haAX --no-i-r --noatime --update --archive \
+    if timeout 120 rsync "$source" "$target" -haAX --no-i-r --noatime --update --archive \
                --info=progress2 --human-readable \
                --exclude=cache --exclude=cache2 --exclude=".cache" --exclude=Trash --exclude=saved-telemetry-pings \
                -e "ssh -T -c aes128-ctr -o Compression=no -x"; then

@@ -82,6 +82,9 @@ add filelight gnome-disk-utility
 add durep ncdu duc perforate di dbench agedu gpart ddpt gdmap  # Not sure about these. Untried.
 add idle3-tools # Recent Western Digital drives.
 
+# File service.
+add glusterfs-client
+
 
 # Docker Community Edition
 # curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -

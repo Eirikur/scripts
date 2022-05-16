@@ -7,6 +7,16 @@ mac_list='1c:c1:de:33:87:5a 70:85:c2:f4:8a:77 f8:0d:ac:38:e7:0e'
 mac_addresses=($mac_list)
 waiting=0
 
+
+function ctrl_c() {
+    echo "^C"
+    exit 1
+}
+
+# trap ctrl-c and call ctrl_c()
+trap ctrl_c INT
+
+
 for ((index=0; index<${#servers[@]}; ++index)); do
     candidate="${servers[index]}"
     if [[ "$candidate" == *"$server"* ]]; then # substring match
@@ -27,12 +37,3 @@ for ((index=0; index<${#servers[@]}; ++index)); do
     fi
 done
 
-# for candidate in "$servers"; do
-#     if [[ "$server" == *"$candidate"* ]]; then
-#     else
-#         echo "Who?"; exit 1;
-#     fi
-# done
-
-# #
-# wakeonlan 1c:c1:de:33:87:5a

@@ -5,12 +5,12 @@ xmodmap ~/.Xmodmap
 # # Force my monitor configurations so that a logout will fix things.
 # cp ~/Configuration/monitors.xml ~/.config/
 
-# # Mint likes to overwrite this for some reason
+# # Mint likes to overwrite this for some reason1
 # cp ~/Configuration/firefox/profiles.ini ~/.mozilla/firefox
 
 xrdb ~/.Xresources
 
-while true; do emacs-snapshot --fg-daemon &>/dev/null; notify-send "Restarting Emacs."; done & # Will daemonize. Let it init itself in background.
+while true; do emacs28 --fg-daemon &>/dev/null; notify-send "Restarting Emacs."; done & # Will daemonize. Let it init itself in background.
 
 #~/scripts/dmesg-display.sh & # Background it. It doesn't like being disowned.
 
