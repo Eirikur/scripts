@@ -48,10 +48,10 @@ for path in "$@"; do # For each command line argument.
             else
                 status="$not_okay"
             fi
-            echo -e -n "\033[F\033[2K" # up 2, clear entire line
+            echo -e -n "\033[2F\033[2K" # up 2, clear entire line
             echo  -en "$indent$elapsed_string $target_icon $target $status"
             echo ""
-            #echo -e -n "\033[K"
+            echo -e -n "\033[K"
 
         else
             # echo "$destination not reachable."

@@ -1,10 +1,15 @@
 #!/bin/bash
+# Time-stamp: <2022-05-16 23:34:54 (eh)>
 # set -x
 # set -e
 # Use lrzip for tightest compression using multiple cores and more memory.
 file="$1"
 file="${file#.}"
-file=$(echo "$file" | sed 's:/*$::') # Strip trailing slash.
+file=${file%/}
+file=${file}
+file=${file// /_}
+
+
 
 if [[ ! -z "$2" ]]; then
     dir="$2"
