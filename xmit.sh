@@ -23,7 +23,7 @@ if tar -cf - "$filename" | mbuffer -m 25% -O $destination:4242 ; then
     status="$okay"
 else
     status="$not_okay"
-    exit 1
+    
 fi
 echo -e -n "\033[F\033[K" # up 2, clear entire line
 echo -en "$indent$elapsed_string $target $status\n"

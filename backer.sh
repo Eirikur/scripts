@@ -6,7 +6,7 @@
 # 6 Aug 2019, added -z to enable compression
 
 # Pushing dir 'eh' into these locations.
-destinations="onyx.local:/home onyx.local:/syba/ 9185@usw-s009.rsync.net: z.local:/home "
+destinations="onyx.local:/Fast 9185@usw-s009.rsync.net: z.local:/home "
 
 path="$HOME"
 

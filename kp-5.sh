@@ -46,7 +46,7 @@ if $emacsclient --eval "(emacs-version)" ; then
     $emacsclient --eval "(recentf-open-files)" -nc # No wait
 else
     echo "Script can't find emacs server."
-    $emacs --daemon
+    $emacs --daemon &> ~/emacs.log
     $emacsclient -nc --eval "(recentf-open-files)"
 
 fi

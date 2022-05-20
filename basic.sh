@@ -108,6 +108,7 @@ add flatpak xclip htop gparted zile guake gkrellm gkrelltop gkrellmwireless gkre
 add thunderbird xul-ext-lightning thunderbird-gnome-support firefox chromium-browser pidgin
 add libnss-myhostname openssh-server openssh-sftp-server sshfs nfs-common # Network connectivity.
 add avahi-daemon avahi-dnsconfd avahi-discover avahi-utils libnss-mdns # Make local dns work.
+add wireshark-qt etherape
 add htop
 add lrzip # More compression formats.....
 

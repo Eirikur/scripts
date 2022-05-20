@@ -14,18 +14,20 @@ target_dir="$3"
 # [[ "$@" == *"--progress"* ]]  && progress='--info=progress2'
 # [[ "$@" == *"-v"* ]] && v='-v'
 
-
 if timeout 2 gethostip $destination  >/dev/null; then # server is reachable.
     if [[ "$destination" == "$offsite_host" ]]; then # Offsite host requires username.
         destination="$offsite_user@$offsite_host:eh/${PWD##/home/eh}"; # Offsite has eh dir inside the account root.
     else
         destination="$destination:$directory_path/"
     fi
-    if timeout 5 rsync "$path" "$destination" --recursive -haAX --no-i-r --noatime --update --archive \
+    if rsync "$path" "$destination" --recursive -haAX --no-i-r --noatime --update --archive \
           --human-readable -e "ssh -T -c aes128-ctr -o Compression=no -x"; then
         exit
     else
         exit 1  
     fi
+else
+    # echo "$destination is bad." # For debugging. This is the name-doesn't-resolve case.
+    exit 1
 fi
     

@@ -32,11 +32,16 @@ fi
 mkdir -p "/home/eh/.emacs.d/$target_dir$(pwd)"
 cp "$full_file_path" "/home/eh/.emacs.d/$target_dir/$file_to_send"
 
-status='Saved to'
+status='Saved to:'
 for destination in $destinations; do
-    if ~/scripts/push_it.sh "$full_file_path" "$destination" &> /dev/null; then
-        status="$status $destination"
+    # if ~/scripts/push_it.sh "$full_file_path" "$destination" &> /dev/null; then
+    if ~/scripts/push_it.sh "$full_file_path" "$destination" ; then
+        status="$status  $destination"
+        echo -n '' #"Good."
+    else
+        echo -n '' # echo "Not good!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
     fi
+
     #     status="$status $destination Bad."
     # fi
 done

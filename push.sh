@@ -8,7 +8,8 @@
 # set -e
 offsite_user='9185'
 offsite_host='usw-s009.rsync.net'
-destinations="tma-1.local onyx.local z.local $offsite_host"
+offsite="$offsite_user@$offsite_host:"
+destinations="onyx.local:/syba  $offsite"
 indent="  "
 okay="\U1f197"
 not_okay="\U1f534"
@@ -26,22 +27,19 @@ for path in "$@"; do # For each command line argument.
         fi
 
 
+        # # If our own hostname, ignore it.
+        # if [[ "$destination " == *"$(hostname)"* ]]; then
+        #     continue
+        # fi
         # If our own hostname, ignore it.
-        if [[ "$destination " == *"$(hostname)"* ]]; then
-            # echo "$destination is local."
-            continue
-        fi
-        if timeout 2 gethostip $destination  >/dev/null; then # server is reachable.
-            target="$destination"
-            if [[ "$destination" == "$offsite_host" ]]; then # Offsite host requires username.
-                destination="$offsite_user@$offsite_host:eh/${PWD##/home/eh}"; # Offsite has eh dir inside the account root.
-            else
-                destination="$destination:${PWD#/home/eh}"
-            fi
+        [[ "$destination " == *"$(hostname)"* ]] && continue
+        host="${destination%%:*}" # Strip off the : and directory path.
+        host="${host##*@}" # Remove the username@ prefix.
+        if timeout 2 gethostip $host  >/dev/null; then # server is reachable.
             start=$SECONDS
             echo -e "$indent$arrow $target_icon $target"
-            if timeout 120 rsync "$path" "$destination"  -haAX --no-i-r --noatime --update --archive \
-                     --recursive  --human-readable \
+            if rsync "$path" "$destination"  -haAX --no-i-r --noatime --update --archive \
+                     --recursive  --human-readable --info=progress2 \
                      --exclude=cache --exclude=cache2 --exclude='.cache' --exclude=Trash --exclude=saved-telemetry-pings \
                      -e "ssh -T -c aes128-ctr -o Compression=no -x"; then
                 elapsed=$(( $SECONDS - start ))

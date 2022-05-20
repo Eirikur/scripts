@@ -1,5 +1,4 @@
 #!/bin/bash
-echo 'nrpc'
 start=$SECONDS
 indent="  "
 okay="\U1f197"

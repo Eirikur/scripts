@@ -10,7 +10,7 @@ xmodmap ~/.Xmodmap
 
 xrdb ~/.Xresources
 
-while true; do emacs28 --fg-daemon &>/dev/null; notify-send "Restarting Emacs."; done & # Will daemonize. Let it init itself in background.
+~/scripts/emacs-loop.sh & # Don't wait for Emacs to init.
 
 #~/scripts/dmesg-display.sh & # Background it. It doesn't like being disowned.
 
