@@ -19,6 +19,7 @@ if rsync  -haAX  --inplace --info=progress2 \
     status="$okay"
 else
     status="$not_okay"
+    exit 1
 fi
 echo -e -n "\033[2F\033[2K" # up 2, clear entire line
 echo  -en "$indent$elapsed_string  $1 $2 $status"
