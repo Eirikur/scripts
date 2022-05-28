@@ -37,7 +37,7 @@ for ((index=0; index<${#servers[@]}; ++index)); do
                 exit 1; fi
             echo -n "."
             done
-            echo "$seconds seconds."
+            echo -e "\n$seconds seconds."
         else
             host_name="$candidate"
             # echo 'no wake needed'
