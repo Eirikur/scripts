@@ -30,7 +30,7 @@ for path in "$@"; do # For each command line argument.
             target_icon="\U1f5c3 " # File box open icon. Requires trainling spc.
         fi
         if [[ "$destination " == *"$(hostname)"* ]]; then
-            echo -e "$okay $home Local system"
+            echo -e "$okay      $home Local system"
             continue
         fi
         host="${destination%%:*}" # Strip off the : and directory path.
@@ -50,7 +50,7 @@ for path in "$@"; do # For each command line argument.
                 exit 1
             fi
             echo -e -n "\033[2F\033[2K" # up 2, clear entire line
-            echo  -en "$status $elapsed_string $target_icon $host"
+            echo  -en "$status $elapsed_string $target_icon $destination$destination_directory"
             echo ""
             echo -e -n "\033[K"
 

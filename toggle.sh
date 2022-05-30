@@ -20,7 +20,6 @@ fi
 
 if xdotool &>/dev/null search $title; # Does our window exist, showing that our app is running?
 then
-    set -x
     echo 'window exists'
     id=$(xprop -root _NET_ACTIVE_WINDOW | cut -d ' ' -f5 )
     name=$(xprop -id $id WM_NAME | cut -d ' ' -f3 ) #| tr -d '"')
@@ -30,7 +29,7 @@ then
     if [[ $name == *"$title"* ]]; # If one of our windows is on top.
     then
         echo 'window is on top'
-        xdotool &>/dev/null search $title windowminimize %@ # windowunmap %@
+        xdotool &>/dev/null search $title windowminimize %@ --sync # windowunmap %@
     else # None of our windows are the uppermost.  Raise all of them.
         echo 'none of our windows is on top; raise all of them'
         exec xdotool &>/dev/null search $title windowmap windowactivate %@
