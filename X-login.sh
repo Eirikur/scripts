@@ -10,7 +10,8 @@ xmodmap ~/.Xmodmap
 
 xrdb ~/.Xresources
 
-~/scripts/emacs-loop.sh & # Don't wait for Emacs to init.
+#~/scripts/emacs-loop.sh & # Don't wait for Emacs to init.
+
 
 #~/scripts/dmesg-display.sh & # Background it. It doesn't like being disowned.
 

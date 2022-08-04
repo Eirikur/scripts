@@ -4,11 +4,11 @@ file="$1"
 file="${file#.}"
 # unique="$(date +%s.%N)" # Unix date (epoch) in seconds, period, nanoseconds.
 # unique="$(date +%s)" # Unix date (epoch) in seconds, period, nanoseconds.
-suffix=".tar.gz"
+suffix=".tar.zstd"
 file="$file$suffix"
 echo "Backing up $1"
 # Bash requires distinction of the external program.
-/usr/bin/time -f "%E" tar -zcf $file $1 && echo "" && du -h --summarize $1 && du -h $file && ~/scripts/push.sh $file && rm $file
+/usr/bin/time -f "%E" tar --zstd -cf $file $1 && echo "" && du -h --summarize $1 && du -h $file && ~/scripts/push.sh $file && rm $file
 
 #!/bin/bash
 # Push a file to the remote version of working directory.  Strip home off.

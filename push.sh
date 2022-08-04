@@ -9,36 +9,36 @@
 offsite_user='9185'
 offsite_host='usw-s009.rsync.net'
 offsite="$offsite_user@$offsite_host:"
-destinations="onyx.local:/syba  $offsite"
+destinations="tma-1.local onyx.local: onyx.local:/syba/ z.local: $offsite"
+destination_directory="${PWD##/home/}/" # eh/path/path
+
 indent="  "
 okay="\U1f197"
+checkmark="\U2705"
+okay="$checkmark"
 not_okay="\U1f534"
 arrow="\u2B95"
+home="\U1f3e1" # house with garden
 
 for path in "$@"; do # For each command line argument.
-    # du -h --summarize "$path"
     directory_path="$(dirname $path)"
     for destination in $destinations  ; do
         target="$destination"
-        if [[ $target == $offsite_host ]]; then
+        if [[ $target == *"@"* ]]; then # Destination is remote path/eh/...
             target_icon="\U1F310" # globe
         else
-            target_icon="\U1f3e1" # house with garden
+            target_icon="\U1f5c3 " # File box open icon. Requires trainling spc.
         fi
-
-
-        # # If our own hostname, ignore it.
-        # if [[ "$destination " == *"$(hostname)"* ]]; then
-        #     continue
-        # fi
-        # If our own hostname, ignore it.
-        [[ "$destination " == *"$(hostname)"* ]] && continue
+        if [[ "$destination " == *"$(hostname)"* ]]; then
+            echo -e "$okay      $home Local system"
+            continue
+        fi
         host="${destination%%:*}" # Strip off the : and directory path.
         host="${host##*@}" # Remove the username@ prefix.
         if timeout 2 gethostip $host  >/dev/null; then # server is reachable.
             start=$SECONDS
             echo -e "$indent$arrow $target_icon $target"
-            if rsync "$path" "$destination"  -haAX --no-i-r --noatime --update --archive \
+            if rsync "$path" "$destination$destination_directory"  -haAX --no-i-r --noatime --update --archive \
                      --recursive  --human-readable --info=progress2 \
                      --exclude=cache --exclude=cache2 --exclude='.cache' --exclude=Trash --exclude=saved-telemetry-pings \
                      -e "ssh -T -c aes128-ctr -o Compression=no -x"; then
@@ -47,11 +47,12 @@ for path in "$@"; do # For each command line argument.
                 status="$okay"
             else
                 status="$not_okay"
+                exit 1
             fi
-            echo -e -n "\033[F\033[2K" # up 2, clear entire line
-            echo  -en "$indent$elapsed_string $target_icon $target $status"
+            echo -e -n "\033[2F\033[2K" # up 2, clear entire line
+            echo  -en "$status $elapsed_string $target_icon $destination$destination_directory"
             echo ""
-            #echo -e -n "\033[K"
+            echo -e -n "\033[K"
 
         else
             # echo "$destination not reachable."

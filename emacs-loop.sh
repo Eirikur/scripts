@@ -2,6 +2,7 @@
 
 while true; do
     emacs28
-    sleep 2
-    echo "Restarting Emacs."
+    sleep 1
+    echo "Restarting Emacs..."
+    notify-send "Restarting Emacs..."
 done

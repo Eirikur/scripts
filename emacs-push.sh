@@ -9,24 +9,13 @@ target_dir='Emacs_Backups'
 offsite_user='9185'
 offsite_host='usw-s009.rsync.net'
 
-destinations="tma-1.local onyx.local z.local $offsite_host"
+destinations="onyx.local z.local $offsite_host"
 
 
 date_stamp=$(date +"%A-%b-%d-%Y+%H%M%S.%N")
 file_name=$(basename "$1")
 # Add time stamp
 file_to_send="$full_file_path.$date_stamp"
-
-
-
-########################## Tramp mode for remote files.
-if [[ "$full_file_path" == *":"* ]]; then
-  echo "File is remote."
-  host=$(echo "$full_file_path" | cut -d: -f2 )
-  path=$(echo "$full_file_path" | cut -d: -f3)
-  access="$host:$path"
-  echo ">>>>>>>>>>>>>>>>>>>>>> $access"
-fi
 
 # A local copy is the fastest recovery point.
 mkdir -p "/home/eh/.emacs.d/$target_dir$(pwd)"
