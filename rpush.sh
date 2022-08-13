@@ -1,6 +1,6 @@
 #!/bin/bash
 
-/usr/bin/time -f%E rsync --no-i-r --compress --times --update --archive --human-readable --info=progress2 "$1" \
+/usr/bin/time -f%E rsync --no-i-r --times --update --archive --human-readable --info=progress2 "$1" \
       9185@usw-s009.rsync.net:
 
 
@@ -18,4 +18,3 @@ notify-send "Copy of $1 to rsync.net succeeded."
 echo ""
 read -p "All good. Dismiss:" q
 exit 0
-

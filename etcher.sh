@@ -1,5 +1,2 @@
 #!/bin/bash
-sudo -H ~/Applications/balenaEtcher*
-#sudo chown eh:eh ~/.cache --recursive
-#sudo chown eh:eh ~/.config/balena-etcher-electron --recursive -v
-
+sudo -H /root/Applications/balenaEtcher-1.7.3-x64_673a54cb12c1f246c78a589af047fe65.AppImage

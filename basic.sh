@@ -11,7 +11,7 @@
 # gksu gedit /etc/default/apport
 # and change "enabled" from "1" to "0", then save the file.
 
-set -e
+# set -e
 
 # Tell BASH to expand aliases.
 shopt -s expand_aliases
@@ -76,7 +76,7 @@ sudo apt remove -y evolution-data-server
 add git build-essential
 
 # Hardware wrangling support.
-add grub-customizer
+#add grub-customizer
 add hdparm hddtemp smartmontools ioping smart-notifier clonezilla hd-idle diskscan
 add filelight gnome-disk-utility
 add durep ncdu duc perforate di dbench agedu gpart ddpt gdmap  # Not sure about these. Untried.
