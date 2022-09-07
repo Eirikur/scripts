@@ -27,7 +27,7 @@ for path in "$@"; do # For each command line argument.
         if [[ $target == *"@"* ]]; then # Destination is remote path/eh/...
             target_icon="\U1F310" # globe
         else
-            target_icon="\U1f5c3 " # File box open icon. Requires trainling spc.
+            target_icon="\U23E9 " # File box open icon. Requires trainling spc.
         fi
         if [[ "$destination " == *"$(hostname)"* ]]; then
             echo -e "$okay      $home Local system"
@@ -38,7 +38,7 @@ for path in "$@"; do # For each command line argument.
         if timeout 2 gethostip $host  >/dev/null; then # server is reachable.
             start=$SECONDS
             echo -e "$indent$arrow $target_icon $target"
-            if rsync "$path" "$destination$destination_directory"  -haAX --no-i-r --noatime --update --archive \
+            if rsync "$path" "$destination$destination_directory"  -haAX --no-i-r --update --archive \
                      --recursive  --human-readable --info=progress2 \
                      --exclude=cache --exclude=cache2 --exclude='.cache' --exclude=Trash --exclude=saved-telemetry-pings \
                      -e "ssh -T -c aes128-ctr -o Compression=no -x"; then

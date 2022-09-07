@@ -20,14 +20,13 @@ if timeout 2 gethostip $destination  >/dev/null; then # server is reachable.
     else
         destination="$destination:$directory_path/"
     fi
-    if rsync "$path" "$destination" --recursive -haAX --no-i-r --noatime --update --archive \
+    if rsync "$path" "$destination" --recursive -haAX --no-i-r --update --archive \
           --human-readable -e "ssh -T -c aes128-ctr -o Compression=no -x"; then
         exit
     else
-        exit 1  
+        exit 1
     fi
 else
     # echo "$destination is bad." # For debugging. This is the name-doesn't-resolve case.
     exit 1
 fi
-    

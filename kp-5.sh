@@ -14,7 +14,7 @@
 #     emacs='emacs'
 # fi
 
-version=28
+version='-snapshot'
 
 echo "Using ordinary /usr/bin/emacs$version"
 emacsclient="emacsclient$version"
