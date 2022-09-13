@@ -1,4 +1,5 @@
 #!/bin/bash
+# 12 Sept. 2022, xdotool now requires command before args.
 # toggle.sh
 # $toggle title command
 # Title is case-sensitive
@@ -18,7 +19,8 @@ else
     command="$2"
 fi
 
-if xdotool --onlyvisible &>/dev/null search $title; # Does our window exist, showing that our app is running?
+# if xdotool --onlyvisible &>/dev/null search $title; # Does our window exist, showing that our app is running?
+if xdotool search --onlyvisible "$title" #; # Does our window exist, showing that our app is running?
 then
     echo 'window exists'
     id=$(xprop -root _NET_ACTIVE_WINDOW | cut -d ' ' -f5 )
@@ -29,12 +31,12 @@ then
     if [[ $name == *"$title"* ]]; # If one of our windows is on top.
     then
         echo 'window is on top'
-        xdotool --onlyvisible &>/dev/null search $title windowminimize %@ --sync # windowunmap %@
+        xdotool search --onlyvisible $title windowminimize %@ --sync # windowunmap %@
     else # None of our windows are the uppermost.  Raise all of them.
         echo 'none of our windows is on top; raise all of them'
-        exec xdotool --onlyvisible &>/dev/null search $title windowmap windowactivate %@
+        exec xdotool search --onlyvisible $title windowmap windowactivate %@
         # xdotool &>/dev/null search $title windowfocus %@
-        xdotool --onlyvisible &>/dev/null search $title windowfocus %@
+        xdotool search --onlyvisible $title windowfocus %@
     fi
 else # Our window does not exist; our app is not running.  Start it.
     echo 'window does not exist'
