@@ -1,5 +1,6 @@
 #!/bin/bash
-xmodmap ~/.Xmodmap
+# set -x
+# xmodmap ~/.Xmodmap
 # setxkbmap -option ctrl:nocaps
 
 # # Force my monitor configurations so that a logout will fix things.
@@ -8,7 +9,7 @@ xmodmap ~/.Xmodmap
 # # Mint likes to overwrite this for some reason1
 # cp ~/Configuration/firefox/profiles.ini ~/.mozilla/firefox
 
-xrdb ~/.Xresources
+# xrdb ~/.Xresources
 
 #~/scripts/emacs-loop.sh & # Don't wait for Emacs to init.
 
@@ -21,7 +22,8 @@ xrdb ~/.Xresources
 # Required for pulse equalizer.
 # One can set this in /etc/pulse/default.pa
 #load-module  module-dbus-protocol
-pactl load-module  module-dbus-protocol
+
+# pactl load-module  module-dbus-protocol
 
 
 # Still blocks Samba browsing in December 2020
@@ -32,13 +34,16 @@ pactl load-module  module-dbus-protocol
 # udisksctl mount -b /dev/sda1
 
 
-# autokey-gtk & disown
+nohup ~/Projects/j/wrapper.sh &
+
+nohup autokey-gtk &
 # if [ $? -ne 0 ]; then
 #     autokey & disown
 
 # autokey -l & disown
 
-gkrellm & disown
-# ~/scripts/prome-theus.sh
+nohup gkrellm &
 
-notify-send "Logged-in."
+
+
+
