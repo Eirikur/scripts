@@ -16,7 +16,7 @@
 
 version='-snapshot'
 
-echo "Using ordinary /usr/bin/emacs$version"
+echo "Using /usr/bin/emacs$version"
 emacsclient="emacsclient$version"
 emacs="emacs$version"
 
@@ -39,15 +39,17 @@ then
         exec xdotool &>/dev/null search $title windowactivate %@
         # xdotool &>/dev/null search $title windowfocus %@
     fi
+    echo "No window."
 fi
 
 if $emacsclient --eval "(emacs-version)" ; then
     echo "Server exists."
-    $emacsclient --eval "(recentf-open-files)" -nc # No wait
+    $emacsclient --eval "(recently-show)" -nc # No wait
 else
     echo "Script can't find emacs server."
+    notify-send "Emacs Server starting..."
     $emacs --daemon &> ~/emacs.log
-    $emacsclient -nc --eval "(recentf-open-files)"
+    $emacsclient -nc --eval "(recently-show)"
 
 fi
 

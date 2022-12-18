@@ -1,4 +1,6 @@
 #!/bin/bash
+# Time-stamp: <2022-10-10 16:18:53 (eh)>
+# 10 Oct 2022 Working cleanly with the terminal control output now.
 # 10 May 2022 Allow progress bar to be shown, but then leave only one line with elapsted time on the screen.
 # Bug, 9 may 2020. Putin claims winning in Ukraine during WWII V day celeb.
 # Push a file to the remote version of working directory.  Strip home off.
@@ -19,6 +21,7 @@ okay="$checkmark"
 not_okay="\U1f534"
 arrow="\u2B95"
 home="\U1f3e1" # house with garden
+houses="\U1f3d8"
 
 for path in "$@"; do # For each command line argument.
     directory_path="$(dirname $path)"
@@ -27,10 +30,10 @@ for path in "$@"; do # For each command line argument.
         if [[ $target == *"@"* ]]; then # Destination is remote path/eh/...
             target_icon="\U1F310" # globe
         else
-            target_icon="\U23E9 " # File box open icon. Requires trainling spc.
+            target_icon="\U1f3d8 " # houses TODO: use the variables
         fi
         if [[ "$destination " == *"$(hostname)"* ]]; then
-            echo -e "$okay      $home Local system"
+            # echo -e "$okay      $home Local system"
             continue
         fi
         host="${destination%%:*}" # Strip off the : and directory path.
@@ -49,9 +52,9 @@ for path in "$@"; do # For each command line argument.
                 status="$not_okay"
                 exit 1
             fi
-            echo -e -n "\033[2F\033[2K" # up 2, clear entire line
-            echo  -en "$status $elapsed_string $target_icon $destination$destination_directory"
-            echo ""
+            echo -e -n "\033[2A\033[2K" # up 1, clear entire line
+            echo  -e "$status $elapsed_string $target_icon $destination$destination_directory"
+            # echo ""
             echo -e -n "\033[K"
 
         else

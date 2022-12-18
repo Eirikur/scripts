@@ -1,5 +1,12 @@
 #!/bin/bash
 # set -x
+# Exit if this is an interactive shell. Preventing weird Onyx problem.
+case $- in
+    *i*) exit ;;
+      *) ;;
+esac
+
+
 # xmodmap ~/.Xmodmap
 # setxkbmap -option ctrl:nocaps
 
@@ -34,15 +41,14 @@
 # udisksctl mount -b /dev/sda1
 
 
-nohup ~/Projects/j/wrapper.sh &
+~/Projects/j/wrapper.sh &
 
-nohup autokey-gtk &
-# if [ $? -ne 0 ]; then
-#     autokey & disown
+autokey-gtk &
 
-# autokey -l & disown
+emacs-snapshot --daemon &
 
-nohup gkrellm &
+gkrellm &
+
 
 
 

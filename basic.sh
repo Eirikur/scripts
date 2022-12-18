@@ -205,7 +205,14 @@ sudo apt autoremove -y
 echo 'Done with managed packages.'
 echo '    Enabling X-server ctrl-alt-backspace.'
 setxkbmap -option terminate:ctrl_alt_bksp
+
+# Force menu bar in Nemo
+gsettings set org.nemo.window-state start-with-menu-bar true
+
+sudo apt remove libnotify-bin -y
+sudo apt install libnotify-bin -y
+
+
+
 echo 'Updating APT Xapian Index...'
 sudo update-apt-xapian-index --verbose --force
-
-#sudo pip3 install --upgrade pipenv
