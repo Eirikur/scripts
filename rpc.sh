@@ -19,7 +19,7 @@ if rsync  -haAX  --inplace --info=progress2 \
           --exclude='*.iso' --exclude='*.tar' \
           --exclude='saved-telemetry-pings' \
           -e "ssh -T -c aes128-ctr -o Compression=no -x" \
-              $1 $2 ; then
+              "$1" "$2" ; then
     elapsed=$(( $SECONDS - start ))
     elapsed_string=$(date -d@"$elapsed" -u +%-M:%S)
     status="$okay"
