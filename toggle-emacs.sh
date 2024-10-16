@@ -1,0 +1,48 @@
+#!/bin/bash
+# Eirikur Hallgrimsson 16 May 2020 Covid lockdown
+# 2022 April fixed to use command -v
+
+title="ξmacs:  "
+
+if xdotool &>/dev/null search $title; then # Window manager cases.
+    echo 'Emacs window exists.'
+    id=$(xprop -root _NET_ACTIVE_WINDOW | cut -d ' ' -f5 )
+    name=$(xprop -id $id WM_NAME) #   | cut -d ' ' -f3 ) #| ytr -d '"')
+    echo "Name: $name"
+    if [[ $name == *"$title"* ]]; # If one of our windows is on top...
+    then	
+	echo "Window is on top. Hiding it..."
+	wmctrl -r "$title" -t 1 # Send window off to desktop 1 to hide.
+    else
+	echo "Window is not on top; raise it." 
+	wmctrl -R "$title"
+	echo "Window fetched and raised."
+	IFS='x' read sw sh < <(xdpyinfo | grep dimensions | grep -o '[0-9x]*' | head -n1)
+	read wx wy ww wh < <(wmctrl -lG | grep $title | sed 's/^[^ ]* *[^ ]* //;s/[^0-9 ].*//;')
+	wmctrl -r $title -e 0,$(($sw/2-$ww/2)),$(($sh/2-$wh/2)),$ww,$wh
+	echo "Window centered."
+    fi
+
+else # Window manager doesn't have an Emacs window. We must start Emacs.
+    
+    ec8ho "No Emacs window exists. Starting a server via emacsclient..."
+    if emacsclient -e "(eh-start-screen)" -nca '' &>/dev/null ; then
+	echo "emacslient returned a success status."
+    else	
+	echo "Emacslient returned a failed status."
+	killall emacs emacs-gtk; killall -KILL emacs emacs-gtk
+	echo "Launching a Emacs daemon..."
+	if emacs --daemon ; then
+	    echo "Emacs daemon launched."
+	    emacsclient -n -c -e "(message "Toggled into existence.")"
+	else
+	    echo "Emacs daemon failed to launch. One more try..."
+	    emacsclient -n -c -e "(message "Toggled into existence.")"
+	fi
+    fi
+fi # End of entire flow.
+
+
+
+
+exit 0
