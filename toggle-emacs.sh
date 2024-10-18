@@ -25,7 +25,7 @@ if xdotool &>/dev/null search $title; then # Window manager cases.
 
 else # Window manager doesn't have an Emacs window. We must start Emacs.
     
-    ec8ho "No Emacs window exists. Starting a server via emacsclient..."
+    echo "No Emacs window exists. Starting a server via emacsclient..."
     if emacsclient -e "(eh-start-screen)" -nca '' &>/dev/null ; then
 	echo "emacslient returned a success status."
     else	
