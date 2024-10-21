@@ -6,7 +6,7 @@
 # If title found in title of topmost window: hide all such windows.
 # If title found, raise all such windows
 # If title not found, run command to get a window.
-#  set -x
+set -x
 
 
 title="$1" # Window title to search for.
@@ -34,13 +34,13 @@ then
     if [[ $name == *"$title"* ]]; # If one of our windows is on top.
     then
         echo 'window is on top'
-        xdotool search --onlyvisible $title windowminimize %@ # windowunmap %@
+        xdotool search --onlyvisible "$title" windowminimize %@ # windowunmap %@
     else # None of our windows are the uppermost.  Raise all of them.
         echo 'none of our windows is on top; raise all of them'
-        xdotool search  $title windowmap windowactivate windowfocus %@
+        xdotool search "$title" windowmap windowactivate windowfocus %@
 	IFS='x' read sw sh < <(xdpyinfo | grep dimensions | grep -o '[0-9x]*' | head -n1)
-	read wx wy ww wh < <(wmctrl -lG | grep $title | sed 's/^[^ ]* *[^ ]* //;s/[^0-9 ].*//;')
-	wmctrl -r $title -e 0,$(($sw/2-$ww/2)),$(($sh/2-$wh/2)),$ww,$wh
+	read wx wy ww wh < <(wmctrl -lG | grep "$title" | sed 's/^[^ ]* *[^ ]* //;s/[^0-9 ].*//;')
+	wmctrl -r "$title" -e 0,$(($sw/2-$ww/2)),$(($sh/2-$wh/2)),$ww,$wh
 	echo "Window centered."
     fi
 else # Our window does not exist; our app is not running.  Start it.
