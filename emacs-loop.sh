@@ -1,8 +1,7 @@
-#!/bin/bash
+ #!/bin/bash
 
 while true; do
-    emacs28
+    emacs --fg-daemon
+    notify-send "Emacs exited. Restarting..."
     sleep 1
-    echo "Restarting Emacs..."
-    notify-send "Restarting Emacs..."
 done

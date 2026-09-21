@@ -11,7 +11,7 @@
 # gksu gedit /etc/default/apport
 # and change "enabled" from "1" to "0", then save the file.
 
-# set -e
+set -e
 
 # Tell BASH to expand aliases.
 shopt -s expand_aliases
@@ -32,12 +32,8 @@ else
     echo "SYSTEMD_PAGER is disabled."
 fi
 
-# Eliminate the need to type .local all the time.
-# echo "CannonicalizeHostnames to eliminate .local..."
-# echo "Host *
-#   CanonicalDomains local
-#   CanonicalizeHostname yes
-# " > ~/.ssh/config
+echo "Fixing interrupted installation..."
+sudo dpkg --configure -a
 
 
 # echo 'Configuring loop devices...'
@@ -46,7 +42,9 @@ fi
 
 echo "Defining installation commands..."
 # install-suggests is evil and installs a TON of stuff I don't want!!!!
-alias add='sudo apt-get -yuV install --install-recommends -qq'
+# alias add='sudo apt-get -yuV install --install-recommends -qq'
+# Added noninteractive 19-Aug-2023 when installing Mint to merlot and bamboo laptops.
+alias add='sudo DEBIAN_FRONTEND=noninteractive apt-get -yuV install --install-recommends -qq '
 alias repo='yes | sudo add-apt-repository -y'
 ##alias getkey='sudo apt-key'
 alias update='sudo apt-get -qq update' # -qq is safe here.
@@ -76,41 +74,35 @@ sudo apt remove -y evolution-data-server
 add git build-essential
 
 # Hardware wrangling support.
-#add grub-customizer
-add hdparm hddtemp smartmontools ioping smart-notifier clonezilla hd-idle diskscan
+add hdparm smartmontools ioping smart-notifier clonezilla hd-idle diskscan
 add filelight gnome-disk-utility
 add durep ncdu duc perforate di dbench agedu gpart ddpt gdmap  # Not sure about these. Untried.
 add idle3-tools # Recent Western Digital drives.
 
-# File service.
-add glusterfs-client
-
-
-# Docker Community Edition
-# curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-# sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(. /etc/os-release; echo "$UBUNTU_CODENAME") stable"
-# update
-# sudo apt-get -y  install docker-ce docker-compose
-# sudo usermod -aG docker eh
+echo "Starting apt package installations..."
+echo "Repairing installed software database if needed..."
+check
+sudo apt-get install --fix-broken --fix-missing --assume-yes --force-yes
+echo "Getting latest repository information..."
+sudo apt update -y
 
 echo "Emacs..."
-repo ppa:ubuntu-elisp
+# repo ppa:ubuntu-elisp
 update
 # Conflicts with a file in emacs. This just forces the install.
-overwrite emacs-snapshot-common
-overwrite emacs-snapshot
+# overwrite emacs-snapshot-common
+# overwrite emacs-snapshot
 # Make snapshot the default Emacs
 # sudo rm /usr/bin/emacs && sudo ln -s /usr/bin/emacs-snapshot /usr/bin/emacs
 # sudo rm /usr/bin/emacsclient && sudo ln -s /usr/bin/emacsclient-snapshot /usr/bin/emacsclient
 
 echo "Adding my basic software...."
-add flatpak xclip htop gparted zile guake gkrellm gkrelltop gkrellmwireless gkrellweather
-add thunderbird xul-ext-lightning thunderbird-gnome-support firefox chromium-browser pidgin
-add libnss-myhostname openssh-server openssh-sftp-server sshfs nfs-common # Network connectivity.
-add avahi-daemon avahi-dnsconfd avahi-discover avahi-utils libnss-mdns # Make local dns work.
-add wireshark-qt etherape
-add htop
-add lrzip # More compression formats.....
+# add flatpak xclip htop gparted zile guake gkrellm gkrelltop gkrellmwireless gkrellweather
+# add thunderbird thunderbird-gnome-support firefox chromium-browser pidgin
+# add libnss-myhostname openssh-server openssh-sftp-server sshfs nfs-common # Network connectivity.
+# add avahi-daemon avahi-dnsconfd avahi-discover avahi-utils libnss-mdns # Make local dns work.
+# add htop
+# add lrzip # More compression formats.....
 
 # NodeJS, npm, coffeescript
 # add npm
@@ -118,10 +110,8 @@ add lrzip # More compression formats.....
 # npm install --global coffeescript # Provides the REPL and compiler via the coffee command.
 
 # Python
-sudo add-apt-repository -y ppa:deadsnakes/ppa
-sudo apt update && sudo apt install -y python3.10
-add python3-pip bpython3 pylint python3-mypy python3-mypy-extensions
-sudo pip3 install --upgrade pip # Get the latest pip.
+# add python3-pip bpython pylint python3-mypy
+# sudo pip3 install --upgrade pip # Get the latest pip.
 
 
 
@@ -138,81 +128,34 @@ chmod +x pishrink.sh
 cd
 
 
-# Package mgmt stuff.
-add apt-xapian-index synaptic # Enable quick search in Synaptic
-
-echo "Adding performance tools..."
-add iozone3 iperf
-
-
-
-# File managers
-add nnn # TUI file manager
-
-# File manager integrations
-add nemo-terminal
-
-# Monitoring
-add iftop
-# echo "Nutty network monitoring..."
-# sudo apt-add-repository -y ppa:bablu-boy/nutty
-# sudo apt-get update
-# sudo apt-get install nutty
-
-
-echo "Function-key user interface stuff..."
-add wmctrl xdotool autokey-gtk numlockx # control window manager via scripts.
-
-echo "Installing gkrellm helpers..."
-sudo ~/Customization/gkrellm/install.sh
-
-
-
-# Fix broken Cinnamon Settings (Yikes, this reset my panels.  Not good!)
-# gsettings reset-recursively org.cinnamon
-
-
-#### Backup system configuration
-# Same code as in b.sh, but needs to be available if this file is all we have.
-path="$HOME/Configuration/System"
-bkp=`dirname $path`/`basename $path`
-pkgs="$bkp/apt"
-mkdir -p "$pkgs" -v # Creates tree as needed.
-dpkg --get-selections > "$pkgs"/Package.list
-sudo cp -R /etc/apt/sources.list* "$pkgs"/
-sudo apt-key exportall > "$pkgs"/Repo.keys &>/dev/null
-
-sudo apt install -y apt-clone -qq  &>/dev/null
-clone="$pkgs/apt-clone"
-mkdir -p "$clone"
-apt-clone clone "$clone/my-mint" &>/dev/null
-cd "$clone" && tar -xf "my-mint.apt-clone.tar.gz" && cd - &>/dev/null
-sudo cp -raux /etc "$path"
-sudo chown -R "$USER:$USER" "$path"
-
-
-
-
+echo "Graphic art tools."
+add gimp inkscape krita 
 
 
 # Last thing
+sudo apt autoremove
 echo 'Installation complete. Doing final repository update and local purge...'
 check
 update
 purge
 check
-sudo apt autoremove -y
 echo 'Done with managed packages.'
+echo 'Updating APT Xapian Index...'
+add apt-xapian-index
+sudo update-apt-xapian-index
 echo '    Enabling X-server ctrl-alt-backspace.'
 setxkbmap -option terminate:ctrl_alt_bksp
+echo ''
+echo 'Setting gconf options:'
+echo '    Emacs keybindings for GNOME dialogs.'
+gconftool-2 --type string --set /desktop/gnome/interface/gtk_key_theme Emacs
+echo '    Enabling icons in menus...'
+gconftool-2 --set /desktop/gnome/interface/menus_have_icons --type boolean True
+echo '    Disabling Logout/Restart/Shutdown confirmation dialog...'
+gconftool-2 –type bool –set /apps/indicator-session/suppress_logout_restart_shutdown true
+echo '    Enable changing accelerator keys in GNOME menus.'
+gsettings set org.gnome.desktop.interface can-change-accels true
+echo 'Setting Workspaces to 1.'
+gsettings set org.cinnamon number-workspaces 1
+echo 'Done!'
 
-# Force menu bar in Nemo
-gsettings set org.nemo.window-state start-with-menu-bar true
-
-sudo apt remove libnotify-bin -y
-sudo apt install libnotify-bin -y
-
-
-
-echo 'Updating APT Xapian Index...'
-sudo update-apt-xapian-index --verbose --force

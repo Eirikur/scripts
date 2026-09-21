@@ -1,14 +1,13 @@
 #!/bin/bash
 # Used by emacs-push.sh
-offsite_user='9185'
-offsite_host='usw-s009.rsync.net'
-offsite_root='eh/'
+# offsite_user='9185'
+# offsite_host='usw-s009.rsync.net'
+# offsite_root='eh/'
 
 path="$1"
 directory_path="$(dirname $(realpath $1))"
 destination="$2"
 target_dir="$3"
-
 
 # unused
 # [[ "$@" == *"--progress"* ]]  && progress='--info=progress2'

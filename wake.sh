@@ -1,9 +1,9 @@
 #!/bin/bash
 timeout=100
 server="$1"
-server_list='z.local onyx.local tma-1.local black.local'
+server_list='z1.local z.local onyx.local tma-1.local black.local'
 servers=($server_list)
-mac_list='1c:c1:de:33:87:5a 70:85:c2:f4:8a:77 f8:0d:ac:38:e7:0e 00:e0:4c:68:45:86'
+mac_list='0a:e4:b6:f8:e8:21 1c:c1:de:33:87:5a 70:85:c2:f4:8a:77 f8:0d:ac:38:e7:0e 00:e0:4c:68:45:86'
 mac_addresses=($mac_list)
 waiting=0
 

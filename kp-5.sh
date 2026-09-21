@@ -21,8 +21,6 @@ echo "Using /usr/bin/emacs$version"
 emacsclient="emacsclient$version"
 emacs="emacs$version"
 
-
-
 title='ξmacs'
 
 if xdotool &>/dev/null search $title; # Does our window exist, showing that our app is running?
@@ -37,21 +35,23 @@ then
         xdotool &>/dev/null search $title windowminimize %@
     else # None of our windows are the uppermost.  Raise all of them.
         echo 'none of our windows is on top; raise all of them'
-        exec xdotool &>/dev/null search $title windowactivate %@
+        xdotool &>/dev/null search $title windowactivate %@
         # xdotool &>/dev/null search $title windowfocus %@
     fi
     echo "No window."
 fi
 
 if $emacsclient --eval "(emacs-version)" ; then
-    echo "Server exists."
-    $emacsclient --eval "(recently-show)" -nc # No wait
+    echo "Server exists. Connecting..."
+    $emacsclient --eval "(recently-show)" # -n # No wait
+    xdotool &>/dev/null search $title windowactivate %@
+
 else
     echo "Script can't find emacs server."
     notify-send "Emacs Server starting..."
+    echo "Emacs Server starting..."
     $emacs --daemon &> ~/emacs.log
-    $emacsclient -nc --eval "(recently-show)"
+    $emacsclient --eval "(recently-show)"
 
 fi
-
 exit 0

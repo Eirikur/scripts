@@ -6,7 +6,7 @@
 # If title found in title of topmost window: hide all such windows.
 # If title found, raise all such windows
 # If title not found, run command to get a window.
-set -x
+# set -x
 
 
 title="$1" # Window title to search for.
@@ -38,12 +38,17 @@ then
     else # None of our windows are the uppermost.  Raise all of them.
         echo 'none of our windows is on top; raise all of them'
         xdotool search "$title" windowmap windowactivate windowfocus %@
+	wmctrl -R "$title"
 	IFS='x' read sw sh < <(xdpyinfo | grep dimensions | grep -o '[0-9x]*' | head -n1)
 	read wx wy ww wh < <(wmctrl -lG | grep "$title" | sed 's/^[^ ]* *[^ ]* //;s/[^0-9 ].*//;')
 	wmctrl -r "$title" -e 0,$(($sw/2-$ww/2)),$(($sh/2-$wh/2)),$ww,$wh
 	echo "Window centered."
     fi
 else # Our window does not exist; our app is not running.  Start it.
+    if [[ $name == gnome-terminal ]]; # If one of our windows is on top.
+    then
+	command="$command -t $title" # Tell the terminal to use the passed title
+    fi
     echo "Window does not exist. Trying to create one: $command"
     set -x
     $command #  &> "~/toggle.log"

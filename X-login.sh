@@ -2,6 +2,10 @@
 # set -x
 # Exit if this is an interactive shell. Preventing weird Onyx problem.
 
+# NEVER start anyting here without checking to see if one is running.
+# The system deosn't know about my private desktop startup file here.
+
+
 if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
     source ~/.profile
     return
@@ -19,14 +23,15 @@ fi
 
 # ~/Projects/j/wrapper.sh &
 
-pgrep sxhkd || sxhkd &
+# pgrep sxhkd || sxhkd &
+killall sxhkd ; nohup sxhkd &
 
 
 # redshift-gtk &
 # guake &
 
 
-gkrellm & 
+pgrep gkrellm || gkrellm &
 
 # # Must get back to dear old j.
 # /home/eh/Projects/j/jp.py &

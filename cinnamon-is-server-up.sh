@@ -1,0 +1,1 @@
+ip_input=onyx.local; red=$(tput setaf 1); green=$(tput setaf 2); reset=$(tput sgr0); [[ $ip_input =~ ^[a-zA-Z] ]] && ip_input=$(dig +short $ip_input); ping -c 1 -W 1 $ip_input > /dev/null && echo "${green}$ip_input${reset}" || echo "${red}$ip_input${reset}"

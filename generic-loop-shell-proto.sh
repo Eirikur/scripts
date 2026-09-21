@@ -1,0 +1,174 @@
+  /home/eh/scripts:
+  total used in directory 1876 available 158.7 MiB
+  drwxr--r--  4 eh eh  24576 Aug  5 02:55 .
+  drwxr--r-- 61 eh eh   8192 Aug  5 02:30 ..
+  -rwxr--r--  1 eh eh   6438 Aug 22  2023 4k60-video-record.sh
+  -rwxr--r--  1 eh eh    960 May 14  2022 archive.sh~
+  -rwxr--r--  1 eh eh   1122 Dec  8  2023 async-push.sh
+  -rwxr--r--  1 eh eh    538 Dec 13  2016 att.sh~
+  -rwxr--r--  1 eh eh    364 Aug  4 11:52 autokey-fix.sh
+  -rwxr--r--  1 eh eh     49 Feb  4  2020 autokey-fix.sh~
+  lrwxrwxrwx  1 eh eh     24 Jul 20 17:35 .#backup.sh -> eh@Solo.18727:1566227100
+  lrwxrwxrwx  1 eh eh     24 Jul 20 17:35 .#backup-worker.sh -> eh@Solo.18727:1566227100
+  -rwxr--r--  1 eh eh    218 Apr  9  2022 badblocks-readonly.sh~
+  -rwxr--r--  1 eh eh    230 Apr  7  2022 badblocks.sh~
+  -rwxr--r--  1 eh eh   9927 May  1  2022 .bash_history
+  -rwxr--r--  1 eh eh     94 Apr 26  2022 .bashrc
+  -rwxr--r--  1 eh eh   8757 Jul 22 17:16 basic.sh
+  -rwxr--r--  1 eh eh   6621 May 16  2022 basic.sh~
+  -rwxr--r--  1 eh eh    738 May  6  2022 big-compare.sh~
+  -rwxr--r--  1 eh eh    182 Apr 27  2022 big-get.sh~
+  -rwxr--r--  1 eh eh    182 Apr 27  2022 big-pull.sh~
+  -rwxrwxr-x  1 eh eh    547 Jul 28 13:27 bug2.sh
+  -rwxrwxr-x  1 eh eh    327 Jul 28 07:59 bug.sh
+  -rwxr--r--  1 eh eh    241 Jul  9  2021 chrome-frame.sh~
+  -rwxr--r--  1 eh eh    258 Jul  3 00:53 cinnamon-is-server-up.sh
+  -rwxr--r--  1 eh eh    127 Jan  8  2024 cockpit-45-drives-repo.sh
+  -rwxr--r--  1 eh eh    304 Jun 23 20:21 cockpit.sh
+  -rwxr--r--  1 eh eh    242 Sep 14  2021 cockpit.sh~
+  drwxrwxr-x  5 eh eh     75 Jul 22 13:18 cockpit-zfs-manager
+  -rwxr--r--  1 eh eh     53 Jan 12  2024 contour.sh
+  -rwxrwxr-x  1 eh eh    179 Jul 15 23:10 cp-progress.sh
+  -rwxr--r--  1 eh eh    957 Nov 23  2023 cpr-test.sh
+  -rwxr--r--  1 eh eh    396 Oct 11  2020 critical.sh~
+  -rwxrwxr-x  1 eh eh     36 Jul 25 12:44 ct.sh
+  lrwxrwxrwx  1 eh eh     14 Jul 20 17:35 .#ddic.sh -> pi@pi4.29451:1
+  -rwxr--r--  1 eh eh    152 Aug 17  2021 ddimage.sh~
+  -rwxr--r--  1 eh eh    262 Mar 31  2023 dd-remote.sh
+  lrwxrwxrwx  1 eh eh     23 Jul 20 17:35 .#deborah.txt -> eh@Solo.7864:1262306054
+  -rwxr--r--  1 eh eh    689 Jun 15 18:41 directory-merge-algo.sh
+  -rwxr--r--  1 eh eh     27 Apr 27  2022 .dmrc
+  -rwxr--r--  1 eh eh    752 May  6  2022 dots.list~
+  -rwxr--r--  1 eh eh    254 May  6  2022 dots.sh~
+  -rwxr--r--  1 eh eh   1538 Nov 11  2017 drop-backup.sh~
+  -rwxr--r--  1 eh eh   1538 Feb  7  2018 drop-post.sh~
+  -rwxrwxr-x  1 eh eh   2300 Jul 15 12:09 emacs-dependencies.sh
+  -rwxr--r--  1 eh eh     96 Jun 29 22:28 emacs-loop.sh
+  -rwxr--r--  1 eh eh    202 May 16  2022 emacs-loop.sh~
+  -rwxr--r--  1 eh eh   1348 Jul 26 03:41 emacs-push.sh
+  -rwxr--r--  1 eh eh   1249 May  6  2020 emacs.sh~
+  -rw-rw-r--  1 eh eh    157 Jul 20 20:36 empty-report.txt
+  -rwxr--r--  1 eh eh   1331 Jan 25  2023 ep.sh
+  -rwxr--r--  1 eh eh    110 May  7  2022 f2.sh~
+  -rwxr--r--  1 eh eh     93 May  5  2022 fal.sh~
+  -rwxr--r--  1 eh eh     98 Jun 19 16:28 ff.sh
+  lrwxrwxrwx  1 eh eh     24 Jul 20 17:35 .#findit.sh -> eh@Solo.18727:1566227100
+  -rwxr--r--  1 eh eh    236 May  8  2022 fit-statusb.sh~
+  -rw-rw-r--  1 eh eh   2968 Jul  9 15:57 foo.foo
+  -rw-rw-r--  1 eh eh    162 Jul 31 02:53 #foo.txt#
+  drwxr--r--  8 eh eh    273 Aug  5 02:55 .git
+  -rw-rw-r--  1 eh eh      0 Jul  9 15:50 grep
+  -rwxr--r--  1 eh eh    140 Mar 24  2019 gr.sh~
+  -rwxr--r--  1 eh eh     62 Jun  3 04:33 g.sh
+  -rwxr--r--  1 eh eh    116 Apr 18  2022 hddtemps.sh~
+  -rwxr--r--  1 eh eh    417 Apr 27  2022 .imwheelrc
+  -rwxr--r--  1 eh eh    353 Jun 25 08:33 install-cockpit-addons.sh
+  -rwxrwxr-x  1 eh eh    156 Jul 22 14:57 install-cockpit-zfs.sh
+  -rwxr--r--  1 eh eh    786 Jan 24  2024 install-firefox-from-mozilla-deb.sh
+  -rwxr--r--  1 eh eh    129 Mar 16  2020 install-shortwave.sh~
+  -rwxrwxr-x  1 eh eh    133 Jul 20 20:34 iter.sh
+  -rwxr--r--  1 eh eh    430 Dec  3  2023 jack.sh
+  -rwxr--r--  1 eh eh     97 Jun 27 00:59 just-names-but-fast.sh
+  -rwxr--r--  1 eh eh   1697 Jul 26 12:34 kp-5.sh
+  -rwxr--r--  1 eh eh   1517 May 16  2022 kp-5.sh~
+  -rwxr--r--  1 eh eh    214 Apr 29  2022 .lesshst
+  -rwxr--r--  1 eh eh 115268 Jan 13  2023 Live Stream _ 'Snow Drift' Unattended Generative Ambient (Disting EX, Nebulae, DPO, Vector)-THM4fUdz8Mc.jpg
+  -rwxr--r--  1 eh eh     64 Feb 22  2018 .~lock.Android Predator.odt#
+  -rwxr--r--  1 eh eh     64 Mar 11  2019 .~lock.Bio for Intaglio.odt#
+  -rwxr--r--  1 eh eh     64 Mar 24  2020 .~lock.Chapelle Demand Letter 24 Mar 2020.odt#
+  -rwxr--r--  1 eh eh     64 Jul 11  2019 .~lock.Sasse broken odroid address.odt#
+  -rwxr--r--  1 eh eh   2992 Jun 29 22:25 loop.sh
+  lrwxrwxrwx  1 eh eh     23 Jul 20 17:36 .#mail-browser-backup.sh -> eh@Solo.2971:1565417356
+  -rwxrwxr-x  1 eh eh    135 Jul 15 14:35 mb.sh
+  -rwxr--r--  1 eh eh   2038 Sep  3  2023 mike-mac.sh
+  -rwxr--r--  1 eh eh    912 Jun 20 03:24 mrf.sh
+  -rwxr--r--  1 eh eh     85 Mar 30  2023 naomi.sh
+  -rw-rw-r--  1 eh eh   4277 Jul 14 18:24 ncp.sh
+  -rwxr--r--  1 eh eh    185 Mar 30  2023 new-pi.sh
+  -rwxr--r--  1 eh eh    746 Apr 30  2022 new-server.sh~
+  -rw-rw-r--  1 eh eh    771 Jul 31 22:00 next-toggle-e.sh
+  -rw-rw-r--  1 eh eh    771 Jul 31 21:56 next-toggle-e.sh~
+  -rw-rw-r--  1 eh eh   1697 Jul 31 21:35 not-broken.sh
+  -rwxrwxr-x  1 eh eh     36 Jul 25 05:00 p2.sh
+  -rwxrwxr-x  1 eh eh  10775 Jul 20 19:43 pishrink.sh
+  -rw-rw-r--  1 eh eh  10775 Jul 30 20:57 pishrink.sh.1
+  -rwxr--r--  1 eh eh  10632 Aug 19  2023 pishrink.sh.17
+  -rwxr--r--  1 eh eh  10632 Aug 20  2023 pishrink.sh.18
+  -rwxr--r--  1 eh eh  10632 Aug 20  2023 pishrink.sh.19
+  -rw-rw-r--  1 eh eh  10775 Jul 13 21:17 pishrink.sh.20
+  -rwxr--r--  1 eh eh  13945 Apr 27  2022 .profile
+  -rwxrwxr-x  1 eh eh    275 Jul 25 05:49 proto.sh
+  -rwxr--r--  1 eh eh    865 Feb  1  2024 provision.sh
+  -rwxr--r--  1 eh eh   2595 Jun  3  2023 -p-.sh
+  -rwxr--r--  1 eh eh     49 Jun  3  2023 p.sh
+  -rwxr--r--  1 eh eh    106 Jan  5  2023 p-timer.sh
+  -rwxr--r--  1 eh eh    333 May 11  2022 pull.sh
+  -rwxr--r--  1 eh eh    970 Jul 21 21:19 push_it.sh
+  -rwxr--r--  1 eh eh   2877 May 18 20:11 push.sh
+  -rwxr--r--  1 eh eh    551 Nov  8  2020 push.sh~
+  -rwxr--r--  1 eh eh    307 Aug  7  2019 put.sh~
+  -rwxr--r--  1 eh eh    352 Apr 23  2022 .pythonhist
+  -rwxrwxr-x  1 eh eh     14 Jul 22 01:34 rcv.sh
+  lrwxrwxrwx  1 eh eh     23 Jul 20 17:36 .#remote-dd.sh -> eh@Solo.1965:1573144726
+  -rwxr--r--  1 eh eh    360 Apr 26  2022 retrieve.sh~
+  -rwxr--r--  1 eh eh     92 Apr 21  2022 rf.sh~
+  -rwxr--r--  1 eh eh    948 Nov 27  2023 rpc2.sh
+  -rwxr--r--  1 eh eh    416 Nov 26  2023 rpcd2.sh
+  -rwxr--r--  1 eh eh    550 Nov 26  2023 rpcd.sh
+  -rwxr--r--  1 eh eh    485 Apr 16  2022 rpcd.sh~
+  -rwxr--r--  1 eh eh   1059 Nov 27  2023 rpcmv.sh
+  -rwxr--r--  1 eh eh   1026 Jun 20 03:17 rpc-new.sh
+  -rwxr--r--  1 eh eh    901 Nov 27  2023 rpc-pre2.sh
+  -rwxr--r--  1 eh eh    990 Jul  4 19:42 rpc.sh
+  -rwxr--r--  1 eh eh    968 Nov 27  2023 rpc.sh~
+  -rwxr--r--  1 eh eh    542 Aug 19  2023 rpush.sh
+  -rwxr--r--  1 eh eh     72 Jun  6 06:43 scratch.sh
+  -rw-rw-r--  1 eh eh 732251 Jul 20 18:24 scripts legacy.tar.gz
+  -rw-rw-r--  1 eh eh 256444 Jul 20 18:29 scripts unchanged after 2022 .tar.zst
+  -rwxr--r--  1 eh eh   9985 Nov 12  2016 setup.sh~
+  -rwxrwxr-x  1 eh eh    320 Jul 25 11:30 shrinkwrap-dirs.sh
+  -rwxr--r--  1 eh eh    112 Jun 26 02:03 size-tree.sh
+  -rw-rw-r--  1 eh eh    186 Jul 11 10:24 skeletonize.sh
+  -rwxr--r--  1 eh eh    260 Sep 14  2021 smb.sh~
+  -rwxrwxr-x  1 eh eh    535 Jul 11 03:20 spaces.sh
+  -rwxr--r--  1 eh eh      2 Jul  9 08:02 sq2-pipes.sh
+  -rwxr--r--  1 eh eh   1244 Jul 27 00:57 squish.sh
+  -rwxr--r--  1 eh eh     59 Jun 23 18:38 sshfs.sh
+  -rwxr--r--  1 eh eh      0 Apr 22  2022 .sudo_as_admin_successful
+  -rwxrwxr-x  1 eh eh    207 Jul 20 20:06 sudo-enablement.sh
+  -rwxr--r--  1 eh eh   1103 Apr 13  2022 syba5.sh~
+  -rwxr--r--  1 eh eh     87 Jul  9 21:48 tar-copy.sh
+  -rw-rw-r--  1 eh eh    176 Jul 14 20:06 tc.sh
+  -rwxr--r--  1 eh eh     40 Jun 28 21:13 terminal-loop.sh
+  -rwxr--r--  1 eh eh     82 Jan 31  2024 test.sh
+  -rwxr--r--  1 eh eh     31 Jan 25  2023 test.txt
+  -rwxrwxr-x  1 eh eh    293 Aug  2 10:02 tgr.sh
+  -rwxr--r--  1 eh eh    371 Jan 12  2022 tgz.sh
+  -rwxr--r--  1 eh eh    517 May  1  2022 tma-1.sh~
+  -rwxrwxr-x  1 eh eh    801 Aug  1 12:35 toggle-emacs.sh
+  -rwxrwxr-x  1 eh eh    793 Aug  1 11:35 toggle-emacs.sh~
+  -rwxr--r--  1 eh eh   1677 Jul 30 21:14 #toggle.sh#
+  -rwxr--r--  1 eh eh   1694 Jul 30 20:09 toggle.sh
+  -rwxr--r--  1 eh eh    225 Oct  6  2020 tpull.sh~
+  -rwxr--r--  1 eh eh   1389 Jun 30  2023 trace_block_rq_issue.sh
+  -rwxr--r--  1 eh eh    525 Jul  6 20:18 used.sh
+  -rwxr--r--  1 eh eh    510 Jul  4 05:44 u.sh
+  lrwxrwxrwx  1 eh eh     23 Jul 20 17:35 .#wakered.sh -> eh@Solo.1988:1578237717
+  -rwxr--r--  1 eh eh   1373 May 31  2022 wake.sh
+  -rwxr--r--  1 eh eh   1098 May  1  2022 wake.sh~
+  -rwxr--r--  1 eh eh    278 Apr 10  2021 wine.sh~
+  -rw-rw-r--  1 eh eh     97 Jul 16 15:00 works.sh
+  -rwxr--r--  1 eh eh    187 May  1  2022 .Xauthority
+  -rwxr--r--  1 eh eh   3608 Jun  2 22:52 x-cursor-big.sh
+  -rwxr--r--  1 eh eh    535 Aug  5 02:55 X-login.sh
+  -rwxr--r--  1 eh eh   1069 May 16  2022 X-login.sh~
+  -rwxr--r--  1 eh eh    517 Jul 29 07:58 X-login.sh.no!
+  -rwxr--r--  1 eh eh     40 Apr 27  2022 .xresources
+  -rwxr--r--  1 eh eh  17775 May  1  2022 .xsession-errors
+  -rwxr--r--  1 eh eh  23224 May  1  2022 .xsession-errors.old
+  -rwxr--r--  1 eh eh    201 May 15  2023 yt-dl-album.sh
+  -rwxr--r--  1 eh eh    242 Jan 13  2023 yt-sound.sh
+  -rwxr--r--  1 eh eh   1103 May 18  2019 zero-gadget.sh~
+  -rwxr--r--  1 eh eh    221 Apr  8  2022 zfs-books.sh~
+  -rwxr--r--  1 eh eh    398 May 29  2022 zfs-z-internal.sh~
+  -rwxrwxr-x  1 eh eh    227 Jul 27 00:27 zst.sh

@@ -1,5 +1,5 @@
 #!/bin/bash
-# Time-stamp: <2022-05-16 23:34:54 (eh)>
+# Time-stamp: <2024-07-27 00:57:14 (eh)>
 # set -x
 # set -e
 # Use lrzip for tightest compression using multiple cores and more memory.
@@ -36,7 +36,7 @@ rm "$compressed_file" 2>&1 | > /dev/null  # Hide complaint if file is not there.
 # b: Bzip2 compression. r: recursively p: processors to use.
 # z: Let's use zapq instead.
 # && rm removes the uncompressed tar file.
-/usr/bin/time -f "%E" lrzip -UDqp `nproc` -S "$compressed_suffix" -L 9 $file && rm -fv $file
+/usr/bin/time -f "%E" lrzip -UDqp `nproc` -S "$compressed_suffix" -L 9 --threads 12 $file && rm -fv $file
 echo "Done."
 du -h "$file$compressed_suffix"
 echo ""
