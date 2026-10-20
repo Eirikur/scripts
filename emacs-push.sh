@@ -1,4 +1,7 @@
 #!/bin/bash
+# set -x
+# set -e
+
 # Push a file to the remote version of working directory.  Strip home off.
 # 9 May 2018, Patricia's birthday. Quoted $1 to "$1"
 # 6 Aug 2019, added -z to enable compression
@@ -60,15 +63,16 @@ else
         # round-trip (~1s), so set PUSH_VERIFY=0 if Emacs saves feel sluggish.
         if [[ "${PUSH_VERIFY:-1}" != 0 ]]; then
             remote_path="$remote_dir$(basename "$full_file_path")"
-            # Single-quote for the REMOTE shell so spaces survive. (rsync -s
-            # handles its own args; ssh does not.)
-            if ssh -o BatchMode=yes "$offsite_user@$offsite_host" \
-                   ls "'$remote_path'" >/dev/null 2>&1; then
+            # Ask rsync (not ssh + ls) whether the file is there: rsync -s passes
+            # the path without a remote shell, so spaces and quotes in names
+            # are safe. Hand-quoting for ssh broke on names like "Bob's notes".
+            if rsync -s --list-only -e "ssh -o BatchMode=yes" \
+                   "$offsite$remote_path" >/dev/null 2>&1; then
                 status="$status [verified]"
-		exit_status=1
+                exit_status=0
             else
-		exit_status=0 
-                status="NOT VERIFIED on remote: $white $remote_path"
+                exit_status=1
+                status="NOT VERIFIED on remote: $remote_path"
             fi
         fi
     else
